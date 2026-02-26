@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.8' //Ya no es necesaria esta linea para versiones nuevas de docker
 
 services:
   postgres:
