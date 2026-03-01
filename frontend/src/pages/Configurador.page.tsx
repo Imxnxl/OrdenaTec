@@ -5,6 +5,7 @@ import PasoCPU from '../components/configurador/PasoCPU';
 import PasoMotherboard from '../components/configurador/PasoMotherboard';
 import PasoRAM from '../components/configurador/PasoRAM';
 import PasoGPU from '../components/configurador/PasoGPU';
+import PasoAlmacenamiento from '../components/configurador/PasoAlmacenamiento';
 import PasoPSU from '../components/configurador/PasoPSU';
 import PasoGabinete from '../components/configurador/PasoGabinete';
 import ResumenPanel from '../components/configurador/ResumenPanel';
@@ -15,7 +16,7 @@ const pasoComponentes: React.ReactNode[] = [
     <PasoMotherboard key="mb" />,
     <PasoRAM key="ram" />,
     <PasoGPU key="gpu" />,
-    <PasoCPU key="storage" />,
+    <PasoAlmacenamiento key="storage" />,
     <PasoPSU key="psu" />,
     <PasoGabinete key="case" />,
 ];

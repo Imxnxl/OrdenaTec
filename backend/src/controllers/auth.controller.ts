@@ -4,12 +4,10 @@
 // ============================================
 
 import { Request, Response, NextFunction } from 'express';
-import { PrismaClient } from '@prisma/client';
+import prisma from '../lib/prisma';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { JwtPayload, Rol } from '../types';
-
-const prisma = new PrismaClient();
 const SALT_ROUNDS = 10;
 const JWT_EXPIRATION = '7d';
 
@@ -62,7 +60,7 @@ export const register = async (
             rol: usuario.rol as Rol,
         };
 
-        const token = jwt.sign(payload, process.env.JWT_SECRET || 'default-secret', {
+        const token = jwt.sign(payload, process.env.JWT_SECRET!, {
             expiresIn: JWT_EXPIRATION,
         });
 
@@ -115,7 +113,7 @@ export const login = async (
             rol: usuario.rol as Rol,
         };
 
-        const token = jwt.sign(payload, process.env.JWT_SECRET || 'default-secret', {
+        const token = jwt.sign(payload, process.env.JWT_SECRET!, {
             expiresIn: JWT_EXPIRATION,
         });
 

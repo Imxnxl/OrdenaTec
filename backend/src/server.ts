@@ -8,6 +8,12 @@ import dotenv from 'dotenv';
 // Cargar variables de entorno antes de importar la app
 dotenv.config();
 
+// Validar que JWT_SECRET esté definido
+if (!process.env.JWT_SECRET) {
+    console.error('FATAL: La variable de entorno JWT_SECRET no está definida.');
+    process.exit(1);
+}
+
 import app from './app';
 
 const PORT = process.env.PORT || 3001;

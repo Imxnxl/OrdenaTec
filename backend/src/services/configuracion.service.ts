@@ -4,11 +4,9 @@
 // actualizar configuraciones de PC.
 // ============================================
 
-import { PrismaClient } from '@prisma/client';
+import prisma from '../lib/prisma';
 import { CompatibilidadService } from './compatibilidad.service';
 import { ResultadoCompatibilidad } from '../types';
-
-const prisma = new PrismaClient();
 
 /**
  * Servicio para gestionar configuraciones de PC armadas por el usuario.

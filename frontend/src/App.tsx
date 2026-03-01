@@ -4,7 +4,7 @@
 // ============================================
 
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 import { useAppSelector } from './store';
 import Navbar from './components/layout/Navbar';
 
@@ -51,9 +51,9 @@ const HomePage: React.FC = () => (
                     Elige cada componente paso a paso y nosotros verificamos que todo sea compatible.
                 </p>
                 <div className="hero-actions">
-                    <a href="/configurador" className="btn btn-primary btn-lg">
-                        ⚙️ Comenzar a armar
-                    </a>
+                    <Link to="/configurador" className="btn btn-primary btn-lg">
+                        Comenzar a armar
+                    </Link>
                 </div>
             </div>
             <div className="hero-features">
@@ -84,9 +84,9 @@ const PedidoConfirmadoPage: React.FC = () => (
     <div className="page-empty">
         <h2>🎉 ¡Pedido confirmado!</h2>
         <p>Tu pedido ha sido procesado exitosamente. Recibirás un correo de confirmación.</p>
-        <a href="/configurador" className="btn btn-primary">
+        <Link to="/configurador" className="btn btn-primary">
             Armar otra PC
-        </a>
+        </Link>
     </div>
 );
 
@@ -131,7 +131,7 @@ const App: React.FC = () => {
                     </Routes>
                 </main>
                 <footer className="footer">
-                    <p>© 2025 OrdenaTEC — Proyecto de Ingeniería de Software</p>
+                    <p>© 2026 OrdenaTEC — Proyecto de Ingeniería de Software</p>
                 </footer>
             </div>
         </Router>

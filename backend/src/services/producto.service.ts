@@ -4,11 +4,10 @@
 // y paginación.
 // ============================================
 
-import { PrismaClient, Prisma } from '@prisma/client';
+import prisma from '../lib/prisma';
+import { Prisma } from '@prisma/client';
 import { FiltrosComponente, RespuestaPaginada } from '../types';
 import { CompatibilidadService } from './compatibilidad.service';
-
-const prisma = new PrismaClient();
 
 /**
  * Servicio para gestionar el catálogo de componentes.
@@ -137,12 +136,11 @@ export class ProductoService {
     }
 
     /**
-     * Desactiva un componente (soft delete, admin).
+     * Elimina un componente permanentemente de la base de datos (hard delete, admin).
      */
     static async eliminar(id: string) {
-        return prisma.componente.update({
+        return prisma.componente.delete({
             where: { id },
-            data: { activo: false },
         });
     }
 

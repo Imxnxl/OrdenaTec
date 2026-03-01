@@ -107,7 +107,7 @@ model ConfiguracionComponente {
   configuracionId String
   componenteId    String
   configuracion   Configuracion @relation(fields: [configuracionId], references: [id], onDelete: Cascade)
-  componente      Componente    @relation(fields: [componenteId], references: [id])
+  componente      Componente    @relation(fields: [componenteId], references: [id], onDelete: Cascade)
 
   @@id([configuracionId, componenteId])
   @@map("configuracion_componentes")

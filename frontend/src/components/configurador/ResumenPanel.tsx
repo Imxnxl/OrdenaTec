@@ -32,7 +32,10 @@ const ResumenPanel: React.FC = () => {
             navigate('/login');
             return;
         }
-        await dispatch(guardarConfiguracion('Mi configuración'));
+        const result = await dispatch(guardarConfiguracion('Mi configuración'));
+        if (guardarConfiguracion.fulfilled.match(result)) {
+            alert('Configuración guardada exitosamente');
+        }
     };
 
     const handleAgregarAlCarrito = async () => {
@@ -135,9 +138,9 @@ const ResumenPanel: React.FC = () => {
                 </div>
             )}
 
-            {componentesCount > 0 && !tieneErrores && !validando && (
+            {componentesCount >= 2 && !tieneErrores && !validando && (
                 <div className="resumen-alert resumen-alert--success">
-                    ✅ Configuración compatible
+                    Configuración compatible
                 </div>
             )}
 

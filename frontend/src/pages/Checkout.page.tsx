@@ -39,10 +39,13 @@ const CheckoutPage: React.FC = () => {
 
         try {
             for (const item of items) {
+                const isTemp = item.configuracion.id.startsWith('temp-');
                 await api.post('/pedidos', {
-                    configuracionId: item.configuracion.id.startsWith('temp-')
-                        ? undefined
-                        : item.configuracion.id,
+                    configuracionId: isTemp ? undefined : item.configuracion.id,
+                    componenteIds: isTemp
+                        ? item.configuracion.componentes.map((c) => c.componenteId)
+                        : undefined,
+                    total: item.configuracion.precioTotal * item.cantidad,
                     direccionEnvio: direccion,
                     metodoPago,
                 });

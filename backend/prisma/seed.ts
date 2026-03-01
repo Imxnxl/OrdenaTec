@@ -14,7 +14,7 @@ async function main() {
             precio: 6500.00,
             stock: 12,
             activo: true,
-            atributos: { socket: "AM5", tdp: 65 }
+            atributos: { socket: "AM5", consumo: 65 }
         },
         {
             sku: "CPU-AMD-7600X",
@@ -23,7 +23,7 @@ async function main() {
             precio: 4200.00,
             stock: 18,
             activo: true,
-            atributos: { socket: "AM5", tdp: 105 }
+            atributos: { socket: "AM5", consumo: 105 }
         },
         {
             sku: "CPU-AMD-7950X3D",
@@ -32,7 +32,7 @@ async function main() {
             precio: 12500.00,
             stock: 3,
             activo: true,
-            atributos: { socket: "AM5", tdp: 120 }
+            atributos: { socket: "AM5", consumo: 120 }
         },
         {
             sku: "CPU-INT-14600K",
@@ -41,7 +41,7 @@ async function main() {
             precio: 5800.00,
             stock: 5,
             activo: true,
-            atributos: { socket: "LGA1700", tdp: 125 }
+            atributos: { socket: "LGA1700", consumo: 125 }
         },
         {
             sku: "CPU-INT-14700K",
@@ -50,7 +50,7 @@ async function main() {
             precio: 7900.00,
             stock: 8,
             activo: true,
-            atributos: { socket: "LGA1700", tdp: 125 }
+            atributos: { socket: "LGA1700", consumo: 125 }
         },
         {
             sku: "CPU-INT-14900K",
@@ -59,7 +59,7 @@ async function main() {
             precio: 11200.00,
             stock: 4,
             activo: true,
-            atributos: { socket: "LGA1700", tdp: 125 }
+            atributos: { socket: "LGA1700", consumo: 125 }
         },
         {
             sku: "GPU-NV-5070",
@@ -68,7 +68,7 @@ async function main() {
             precio: 11500.00,
             stock: 4,
             activo: true,
-            atributos: { vram: "12GB", consumo: 250, longitud_mm: 280 }
+            atributos: { vram: "12GB", consumo: 250, longitudMM: 280 }
         },
         {
             sku: "GPU-NV-5080",
@@ -77,7 +77,7 @@ async function main() {
             precio: 19500.00,
             stock: 2,
             activo: true,
-            atributos: { vram: "16GB", consumo: 320, longitud_mm: 310 }
+            atributos: { vram: "16GB", consumo: 320, longitudMM: 310 }
         },
         {
             sku: "GPU-NV-4060",
@@ -86,7 +86,7 @@ async function main() {
             precio: 5800.00,
             stock: 22,
             activo: true,
-            atributos: { vram: "8GB", consumo: 115, longitud_mm: 240 }
+            atributos: { vram: "8GB", consumo: 115, longitudMM: 240 }
         },
         {
             sku: "GPU-NV-4070TIS",
@@ -95,7 +95,7 @@ async function main() {
             precio: 15800.00,
             stock: 6,
             activo: true,
-            atributos: { vram: "16GB", consumo: 285, longitud_mm: 305 }
+            atributos: { vram: "16GB", consumo: 285, longitudMM: 305 }
         },
         {
             sku: "GPU-AMD-7600",
@@ -104,7 +104,7 @@ async function main() {
             precio: 5200.00,
             stock: 15,
             activo: true,
-            atributos: { vram: "8GB", consumo: 165, longitud_mm: 240 }
+            atributos: { vram: "8GB", consumo: 165, longitudMM: 240 }
         },
         {
             sku: "GPU-AMD-7800XT",
@@ -113,7 +113,7 @@ async function main() {
             precio: 9800.00,
             stock: 8,
             activo: true,
-            atributos: { vram: "16GB", consumo: 263, longitud_mm: 320 }
+            atributos: { vram: "16GB", consumo: 263, longitudMM: 320 }
         },
         {
             sku: "GPU-AMD-7900XTX",
@@ -122,7 +122,7 @@ async function main() {
             precio: 18500.00,
             stock: 3,
             activo: true,
-            atributos: { vram: "24GB", consumo: 355, longitud_mm: 344 }
+            atributos: { vram: "24GB", consumo: 355, longitudMM: 344 }
         },
         {
             sku: "RAM-KIN-32GB-5600",
@@ -167,7 +167,7 @@ async function main() {
             precio: 4200.00,
             stock: 7,
             activo: true,
-            atributos: { socket: "AM5", ram_tipo: "DDR5", formato: "ATX" }
+            atributos: { socket: "AM5", tipoRAM: "DDR5", formato: "ATX" }
         },
         {
             sku: "MB-GIG-X670E",
@@ -176,7 +176,7 @@ async function main() {
             precio: 8500.00,
             stock: 4,
             activo: true,
-            atributos: { socket: "AM5", ram_tipo: "DDR5", formato: "E-ATX" }
+            atributos: { socket: "AM5", tipoRAM: "DDR5", formato: "E-ATX" }
         },
         {
             sku: "MB-ASUS-B760",
@@ -185,7 +185,7 @@ async function main() {
             precio: 3200.00,
             stock: 12,
             activo: true,
-            atributos: { socket: "LGA1700", ram_tipo: "DDR4", formato: "ATX" }
+            atributos: { socket: "LGA1700", tipoRAM: "DDR4", formato: "ATX" }
         },
         {
             sku: "MB-MSI-Z790",
@@ -194,7 +194,7 @@ async function main() {
             precio: 3900.00,
             stock: 10,
             activo: true,
-            atributos: { socket: "LGA1700", ram_tipo: "DDR5", formato: "ATX" }
+            atributos: { socket: "LGA1700", tipoRAM: "DDR5", formato: "ATX" }
         },
         {
             sku: "PSU-COR-850",
@@ -203,7 +203,7 @@ async function main() {
             precio: 2400.00,
             stock: 15,
             activo: true,
-            atributos: { watts: 850, certificacion: "Gold" }
+            atributos: { potenciaW: 850, certificacion: "Gold" }
         },
         {
             sku: "PSU-SEA-1000",
@@ -212,7 +212,7 @@ async function main() {
             precio: 3200.00,
             stock: 8,
             activo: true,
-            atributos: { watts: 1000, certificacion: "Gold" }
+            atributos: { potenciaW: 1000, certificacion: "Gold" }
         },
         {
             sku: "PSU-EVG-650",
@@ -221,7 +221,7 @@ async function main() {
             precio: 1800.00,
             stock: 20,
             activo: true,
-            atributos: { watts: 650, certificacion: "Gold" }
+            atributos: { potenciaW: 650, certificacion: "Gold" }
         },
         {
             sku: "GAB-NZXT-H5",
@@ -230,7 +230,7 @@ async function main() {
             precio: 1800.00,
             stock: 9,
             activo: true,
-            atributos: { formato_max: "ATX", gpu_max_mm: 365 }
+            atributos: { factorForma: "ATX", maxLongitudGPUMM: 365 }
         },
         {
             sku: "GAB-COR-4000D",
@@ -239,7 +239,7 @@ async function main() {
             precio: 2100.00,
             stock: 14,
             activo: true,
-            atributos: { formato_max: "E-ATX", gpu_max_mm: 360 }
+            atributos: { factorForma: "E-ATX", maxLongitudGPUMM: 360 }
         },
         {
             sku: "GAB-LIA-O11",
@@ -248,7 +248,7 @@ async function main() {
             precio: 3100.00,
             stock: 6,
             activo: true,
-            atributos: { formato_max: "E-ATX", gpu_max_mm: 426 }
+            atributos: { factorForma: "E-ATX", maxLongitudGPUMM: 426 }
         },
         {
             sku: "ALM-WD-1TB",

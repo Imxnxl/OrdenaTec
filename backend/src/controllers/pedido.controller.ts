@@ -4,10 +4,8 @@
 // ============================================
 
 import { Response, NextFunction } from 'express';
-import { PrismaClient } from '@prisma/client';
+import prisma from '../lib/prisma';
 import { AuthRequest } from '../types';
-
-const prisma = new PrismaClient();
 
 /**
  * POST /api/pedidos
@@ -27,13 +25,17 @@ export const crear = async (
             return;
         }
 
-        const { configuracionId, direccionEnvio, metodoPago } = req.body;
+        const { configuracionId, componenteIds, direccionEnvio, metodoPago, total: totalEnviado } = req.body;
 
-        // Obtener configuración para calcular total
+        // Determinar el total y la configuración
         let total = 0;
+        let configId = configuracionId;
+
         if (configuracionId) {
+            // Pedido basado en una configuración existente
             const configuracion = await prisma.configuracion.findUnique({
                 where: { id: configuracionId },
+                include: { componentes: { include: { componente: true } } },
             });
             if (!configuracion) {
                 res.status(404).json({
@@ -43,14 +45,78 @@ export const crear = async (
                 return;
             }
             total = configuracion.precioTotal;
+        } else if (componenteIds && componenteIds.length > 0) {
+            // Pedido basado en componentes sueltos (carrito temporal)
+            // Crear configuración en la BD primero
+            const componentes = await prisma.componente.findMany({
+                where: { id: { in: componenteIds } },
+            });
+
+            if (componentes.length !== componenteIds.length) {
+                res.status(400).json({
+                    error: 'Componentes inválidos',
+                    mensaje: 'Uno o más componentes no existen',
+                });
+                return;
+            }
+
+            total = componentes.reduce((sum: number, c: any) => sum + c.precio, 0);
+
+            const config = await prisma.configuracion.create({
+                data: {
+                    nombre: 'Pedido desde carrito',
+                    usuarioId: req.user!.userId,
+                    precioTotal: total,
+                    componentes: {
+                        create: componenteIds.map((cId: string) => ({
+                            componenteId: cId,
+                        })),
+                    },
+                },
+            });
+            configId = config.id;
+        } else if (totalEnviado && totalEnviado > 0) {
+            // Fallback: usar el total enviado por el frontend
+            total = totalEnviado;
         }
 
-        // Crear pedido con transacción
+        if (total <= 0) {
+            res.status(400).json({
+                error: 'Total inválido',
+                mensaje: 'El pedido debe tener un total mayor a 0',
+            });
+            return;
+        }
+
+        // Crear pedido con transacción (incluye descuento de stock)
         const pedido = await prisma.$transaction(async (tx) => {
+            // Descontar stock de los componentes
+            if (configId) {
+                const configConComponentes = await tx.configuracion.findUnique({
+                    where: { id: configId },
+                    include: { componentes: { include: { componente: true } } },
+                });
+
+                if (configConComponentes) {
+                    for (const cc of configConComponentes.componentes) {
+                        if (cc.componente.stock <= 0) {
+                            throw Object.assign(
+                                new Error(`${cc.componente.nombre} está agotado`),
+                                { statusCode: 400 }
+                            );
+                        }
+                        await tx.componente.update({
+                            where: { id: cc.componente.id },
+                            data: { stock: { decrement: 1 } },
+                        });
+                    }
+                }
+            }
+
             const nuevoPedido = await tx.pedido.create({
                 data: {
                     usuarioId: req.user!.userId,
-                    configuracionId,
+                    configuracionId: configId,
                     estado: 'PENDIENTE',
                     total,
                     direccionEnvio,
@@ -70,7 +136,7 @@ export const crear = async (
                     pedidoId: nuevoPedido.id,
                     monto: total,
                     metodo: metodoPago || 'simulado',
-                    estado: 'COMPLETADO', // Pago simulado: se marca como completado
+                    estado: 'COMPLETADO',
                 },
             });
 
@@ -169,7 +235,7 @@ export const obtenerPorId = async (
         }
 
         // Verificar que el pedido pertenece al usuario (o es admin)
-        if (req.user && req.user.userId !== pedido.usuarioId && req.user.rol !== 'ADMIN') {
+        if (!req.user || (req.user.userId !== pedido.usuarioId && req.user.rol !== 'ADMIN')) {
             res.status(403).json({
                 error: 'Acceso denegado',
                 mensaje: 'No tiene permisos para ver este pedido',
