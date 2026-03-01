@@ -13,6 +13,14 @@ OrdenaTEC is a specialized e-commerce platform for selling computer components a
 *   **Toast Notifications:** Real-time visual feedback for CRUD operations (Create, Edit, Delete).
 *   **Inline Validation UI:** Backend Zod validation errors are now mapped directly to the frontend modal for easier user correction.
 
+## v1.0 Features (Foundation)
+*   **Interactive PC Builder:** A 7-step wizard (CPU, Motherboard, RAM, GPU, Storage, PSU, Case) with state management.
+*   **Real-time Compatibility Engine:** Strict hardware validation (Socket types, RAM generations, Wattage limits, GPU dimensions).
+*   **Smart Suggestions:** Recommends alternative compatible components if a selection causes a conflict.
+*   **Cart & Checkout:** Dynamic pricing cart with simulated checkout and order generation.
+*   **Admin Dashboard:** Full CRUD management for the hardware catalog and general statistics.
+*   **JWT Authentication:** Secure login and registration system with role-based access control (Admin/Client).
+
 ---
 
 ## Getting Started
