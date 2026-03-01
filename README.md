@@ -1,15 +1,17 @@
-# OrdenaTEC — E-Commerce PC Configurator
+# OrdenaTEC — E-Commerce PC Configurator v2.0
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 OrdenaTEC is a specialized e-commerce platform for selling computer components and custom PC builds. The core feature is an interactive **PC Builder** that guides the user step by step, validates hardware compatibility in real time, shows price and estimated power consumption, and suggests alternatives.
 
-## Technology Stack
-
-| Layer          | Technology                                       |
-| -------------- | ------------------------------------------------ |
-| **Backend**    | Node.js 20+, Express 4.18+, TypeScript 5+       |
-| **ORM**        | Prisma 5+ with PostgreSQL 15                     |
-| **Frontend**   | React 18+, Redux Toolkit 2+, React Router DOM 6+ |
-| **Infra**      | Docker, Docker Compose                           |
+## v2.0 Features (New)
+*   **Premium Glassmorphism Design:** A modern, frosted-glass aesthetic across all cards, modals, and navigation components.
+*   **Dynamic Backgrounds:** High-resolution abstract dynamic backgrounds that interact beautifully with the translucent UI elements.
+*   **Enhanced Animations:** Smooth entry animations (FadeInUp, SlideIn, Bounce), hover glows, and satisfying button press interactions.
+*   **Robust Deletion Security:** Custom delete modals requiring explicit "ELIMINAR" confirmation text to prevent accidental data loss.
+*   **Hard Delete Architecture:** Fixed SKU conflicts by implementing true database cascade deletions, completely freeing up identifiers.
+*   **Toast Notifications:** Real-time visual feedback for CRUD operations (Create, Edit, Delete).
+*   **Inline Validation UI:** Backend Zod validation errors are now mapped directly to the frontend modal for easier user correction.
 
 ---
 
