@@ -40,6 +40,10 @@ const Navbar: React.FC = () => {
                         )}
                     </Link>
 
+                    <Link to="/ayuda" className="nav-link">
+                        ❓ Ayuda
+                    </Link>
+
                     {usuario ? (
                         <div className="nav-user">
                             <span className="nav-user-name">👤 {usuario.nombre}</span>
