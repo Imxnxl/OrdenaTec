@@ -1,0 +1,135 @@
+{
+    "combos": {
+        "RTX 5070|Ryzen 7 9700X": {
+            "juegos": [
+                { "nombre": "Fortnite", "fps": { "1080p": { "low": 280, "medium": 240, "high": 190, "ultra": 155 }, "1440p": { "low": 210, "medium": 175, "high": 140, "ultra": 110 }, "4K": { "low": 130, "medium": 105, "high": 80, "ultra": 62 } } },
+                { "nombre": "CS2", "fps": { "1080p": { "low": 380, "medium": 320, "high": 260, "ultra": 210 }, "1440p": { "low": 290, "medium": 240, "high": 195, "ultra": 155 }, "4K": { "low": 170, "medium": 140, "high": 110, "ultra": 85 } } },
+                { "nombre": "Valorant", "fps": { "1080p": { "low": 500, "medium": 420, "high": 350, "ultra": 290 }, "1440p": { "low": 380, "medium": 310, "high": 260, "ultra": 210 }, "4K": { "low": 220, "medium": 180, "high": 150, "ultra": 120 } } },
+                { "nombre": "Cyberpunk 2077", "fps": { "1080p": { "low": 130, "medium": 105, "high": 80, "ultra": 60 }, "1440p": { "low": 95, "medium": 75, "high": 58, "ultra": 42 }, "4K": { "low": 55, "medium": 42, "high": 32, "ultra": 22 } } },
+                { "nombre": "GTA V", "fps": { "1080p": { "low": 180, "medium": 155, "high": 130, "ultra": 110 }, "1440p": { "low": 140, "medium": 120, "high": 100, "ultra": 82 }, "4K": { "low": 85, "medium": 70, "high": 58, "ultra": 45 } } },
+                { "nombre": "Minecraft", "fps": { "1080p": { "low": 600, "medium": 500, "high": 400, "ultra": 320 }, "1440p": { "low": 450, "medium": 380, "high": 300, "ultra": 240 }, "4K": { "low": 280, "medium": 230, "high": 180, "ultra": 140 } } },
+                { "nombre": "Apex Legends", "fps": { "1080p": { "low": 250, "medium": 210, "high": 170, "ultra": 140 }, "1440p": { "low": 190, "medium": 155, "high": 125, "ultra": 100 }, "4K": { "low": 110, "medium": 90, "high": 72, "ultra": 55 } } },
+                { "nombre": "Call of Duty Warzone", "fps": { "1080p": { "low": 220, "medium": 185, "high": 150, "ultra": 120 }, "1440p": { "low": 165, "medium": 135, "high": 110, "ultra": 88 }, "4K": { "low": 95, "medium": 78, "high": 62, "ultra": 48 } } },
+                { "nombre": "Elden Ring", "fps": { "1080p": { "low": 60, "medium": 60, "high": 60, "ultra": 60 }, "1440p": { "low": 60, "medium": 60, "high": 60, "ultra": 55 }, "4K": { "low": 60, "medium": 55, "high": 48, "ultra": 38 } } },
+                { "nombre": "Red Dead Redemption 2", "fps": { "1080p": { "low": 150, "medium": 120, "high": 95, "ultra": 72 }, "1440p": { "low": 110, "medium": 88, "high": 70, "ultra": 52 }, "4K": { "low": 65, "medium": 50, "high": 40, "ultra": 28 } } }
+            ],
+            "creative": [
+                { "programa": "Blender (Render Cycles)", "score": 78, "descripcion": "Renderizado fluido para proyectos medianos. Escenas complejas en tiempos razonables." },
+                { "programa": "DaVinci Resolve", "score": 82, "descripcion": "Edición y color grading 4K sin problemas. Exportación rápida." },
+                { "programa": "Adobe Premiere Pro", "score": 80, "descripcion": "Timeline fluido en 4K. Efectos complejos sin drops significativos." }
+            ]
+        },
+        "RTX 5080|Ryzen 9 7950X3D": {
+            "juegos": [
+                { "nombre": "Fortnite", "fps": { "1080p": { "low": 380, "medium": 330, "high": 270, "ultra": 220 }, "1440p": { "low": 290, "medium": 245, "high": 200, "ultra": 160 }, "4K": { "low": 180, "medium": 150, "high": 120, "ultra": 92 } } },
+                { "nombre": "CS2", "fps": { "1080p": { "low": 500, "medium": 430, "high": 360, "ultra": 300 }, "1440p": { "low": 390, "medium": 330, "high": 270, "ultra": 220 }, "4K": { "low": 240, "medium": 200, "high": 160, "ultra": 125 } } },
+                { "nombre": "Valorant", "fps": { "1080p": { "low": 600, "medium": 550, "high": 480, "ultra": 400 }, "1440p": { "low": 500, "medium": 430, "high": 370, "ultra": 300 }, "4K": { "low": 310, "medium": 260, "high": 220, "ultra": 175 } } },
+                { "nombre": "Cyberpunk 2077", "fps": { "1080p": { "low": 170, "medium": 140, "high": 110, "ultra": 85 }, "1440p": { "low": 130, "medium": 105, "high": 82, "ultra": 62 }, "4K": { "low": 78, "medium": 62, "high": 48, "ultra": 35 } } },
+                { "nombre": "GTA V", "fps": { "1080p": { "low": 220, "medium": 190, "high": 165, "ultra": 140 }, "1440p": { "low": 175, "medium": 150, "high": 128, "ultra": 105 }, "4K": { "low": 110, "medium": 92, "high": 75, "ultra": 60 } } },
+                { "nombre": "Minecraft", "fps": { "1080p": { "low": 700, "medium": 600, "high": 500, "ultra": 420 }, "1440p": { "low": 550, "medium": 470, "high": 390, "ultra": 320 }, "4K": { "low": 350, "medium": 290, "high": 240, "ultra": 190 } } },
+                { "nombre": "Apex Legends", "fps": { "1080p": { "low": 330, "medium": 280, "high": 230, "ultra": 190 }, "1440p": { "low": 255, "medium": 215, "high": 175, "ultra": 140 }, "4K": { "low": 155, "medium": 130, "high": 105, "ultra": 80 } } },
+                { "nombre": "Call of Duty Warzone", "fps": { "1080p": { "low": 290, "medium": 250, "high": 205, "ultra": 170 }, "1440p": { "low": 225, "medium": 190, "high": 155, "ultra": 125 }, "4K": { "low": 135, "medium": 112, "high": 90, "ultra": 70 } } },
+                { "nombre": "Elden Ring", "fps": { "1080p": { "low": 60, "medium": 60, "high": 60, "ultra": 60 }, "1440p": { "low": 60, "medium": 60, "high": 60, "ultra": 60 }, "4K": { "low": 60, "medium": 60, "high": 55, "ultra": 48 } } },
+                { "nombre": "Red Dead Redemption 2", "fps": { "1080p": { "low": 195, "medium": 165, "high": 135, "ultra": 105 }, "1440p": { "low": 150, "medium": 125, "high": 100, "ultra": 78 }, "4K": { "low": 92, "medium": 75, "high": 60, "ultra": 42 } } }
+            ],
+            "creative": [
+                { "programa": "Blender (Render Cycles)", "score": 92, "descripcion": "Renderizado muy rápido. Maneja escenas complejas con geometría densa sin problemas." },
+                { "programa": "DaVinci Resolve", "score": 95, "descripcion": "Edición, color grading y Fusion en 4K+ sin limitaciones. Exportación veloz." },
+                { "programa": "Adobe Premiere Pro", "score": 90, "descripcion": "Múltiples streams 4K simultáneos. Efectos y transiciones en tiempo real." }
+            ]
+        },
+        "RTX 4060|Ryzen 5 7600X": {
+            "juegos": [
+                { "nombre": "Fortnite", "fps": { "1080p": { "low": 220, "medium": 180, "high": 140, "ultra": 110 }, "1440p": { "low": 155, "medium": 125, "high": 98, "ultra": 75 }, "4K": { "low": 85, "medium": 68, "high": 52, "ultra": 38 } } },
+                { "nombre": "CS2", "fps": { "1080p": { "low": 290, "medium": 240, "high": 195, "ultra": 155 }, "1440p": { "low": 210, "medium": 175, "high": 140, "ultra": 110 }, "4K": { "low": 120, "medium": 98, "high": 78, "ultra": 60 } } },
+                { "nombre": "Valorant", "fps": { "1080p": { "low": 400, "medium": 340, "high": 280, "ultra": 230 }, "1440p": { "low": 300, "medium": 250, "high": 205, "ultra": 165 }, "4K": { "low": 175, "medium": 142, "high": 115, "ultra": 90 } } },
+                { "nombre": "Cyberpunk 2077", "fps": { "1080p": { "low": 95, "medium": 75, "high": 55, "ultra": 38 }, "1440p": { "low": 65, "medium": 50, "high": 38, "ultra": 25 }, "4K": { "low": 35, "medium": 27, "high": 20, "ultra": 14 } } },
+                { "nombre": "GTA V", "fps": { "1080p": { "low": 145, "medium": 120, "high": 100, "ultra": 82 }, "1440p": { "low": 105, "medium": 88, "high": 72, "ultra": 58 }, "4K": { "low": 60, "medium": 48, "high": 38, "ultra": 28 } } },
+                { "nombre": "Minecraft", "fps": { "1080p": { "low": 500, "medium": 420, "high": 340, "ultra": 270 }, "1440p": { "low": 380, "medium": 310, "high": 250, "ultra": 200 }, "4K": { "low": 220, "medium": 180, "high": 140, "ultra": 110 } } },
+                { "nombre": "Apex Legends", "fps": { "1080p": { "low": 190, "medium": 155, "high": 125, "ultra": 100 }, "1440p": { "low": 138, "medium": 112, "high": 90, "ultra": 70 }, "4K": { "low": 78, "medium": 62, "high": 50, "ultra": 38 } } },
+                { "nombre": "Call of Duty Warzone", "fps": { "1080p": { "low": 170, "medium": 140, "high": 112, "ultra": 90 }, "1440p": { "low": 122, "medium": 100, "high": 80, "ultra": 62 }, "4K": { "low": 68, "medium": 55, "high": 44, "ultra": 32 } } },
+                { "nombre": "Elden Ring", "fps": { "1080p": { "low": 60, "medium": 60, "high": 60, "ultra": 55 }, "1440p": { "low": 60, "medium": 58, "high": 50, "ultra": 42 }, "4K": { "low": 45, "medium": 38, "high": 30, "ultra": 22 } } },
+                { "nombre": "Red Dead Redemption 2", "fps": { "1080p": { "low": 110, "medium": 88, "high": 68, "ultra": 50 }, "1440p": { "low": 78, "medium": 62, "high": 48, "ultra": 35 }, "4K": { "low": 42, "medium": 33, "high": 25, "ultra": 18 } } }
+            ],
+            "creative": [
+                { "programa": "Blender (Render Cycles)", "score": 55, "descripcion": "Renderizado aceptable para proyectos sencillos. Escenas complejas requieren paciencia." },
+                { "programa": "DaVinci Resolve", "score": 62, "descripcion": "Edición 1080p fluida, 4K con proxies recomendado." },
+                { "programa": "Adobe Premiere Pro", "score": 60, "descripcion": "Funcional para edición 1080p. Efectos pesados pueden causar lag." }
+            ]
+        },
+        "RTX 4070 Ti SUPER|Core i7-14700K": {
+            "juegos": [
+                { "nombre": "Fortnite", "fps": { "1080p": { "low": 320, "medium": 275, "high": 225, "ultra": 185 }, "1440p": { "low": 250, "medium": 210, "high": 170, "ultra": 138 }, "4K": { "low": 155, "medium": 128, "high": 102, "ultra": 78 } } },
+                { "nombre": "CS2", "fps": { "1080p": { "low": 420, "medium": 360, "high": 300, "ultra": 250 }, "1440p": { "low": 330, "medium": 280, "high": 230, "ultra": 185 }, "4K": { "low": 200, "medium": 165, "high": 135, "ultra": 105 } } },
+                { "nombre": "Valorant", "fps": { "1080p": { "low": 550, "medium": 470, "high": 400, "ultra": 340 }, "1440p": { "low": 430, "medium": 365, "high": 305, "ultra": 250 }, "4K": { "low": 270, "medium": 225, "high": 185, "ultra": 150 } } },
+                { "nombre": "Cyberpunk 2077", "fps": { "1080p": { "low": 150, "medium": 122, "high": 95, "ultra": 72 }, "1440p": { "low": 112, "medium": 90, "high": 70, "ultra": 52 }, "4K": { "low": 65, "medium": 52, "high": 40, "ultra": 28 } } },
+                { "nombre": "GTA V", "fps": { "1080p": { "low": 200, "medium": 172, "high": 148, "ultra": 125 }, "1440p": { "low": 158, "medium": 135, "high": 115, "ultra": 95 }, "4K": { "low": 98, "medium": 82, "high": 68, "ultra": 52 } } },
+                { "nombre": "Minecraft", "fps": { "1080p": { "low": 650, "medium": 550, "high": 450, "ultra": 370 }, "1440p": { "low": 500, "medium": 420, "high": 345, "ultra": 280 }, "4K": { "low": 310, "medium": 258, "high": 210, "ultra": 165 } } },
+                { "nombre": "Apex Legends", "fps": { "1080p": { "low": 290, "medium": 245, "high": 200, "ultra": 165 }, "1440p": { "low": 222, "medium": 185, "high": 150, "ultra": 120 }, "4K": { "low": 132, "medium": 110, "high": 88, "ultra": 68 } } },
+                { "nombre": "Call of Duty Warzone", "fps": { "1080p": { "low": 260, "medium": 220, "high": 180, "ultra": 148 }, "1440p": { "low": 198, "medium": 165, "high": 135, "ultra": 108 }, "4K": { "low": 118, "medium": 98, "high": 78, "ultra": 60 } } },
+                { "nombre": "Elden Ring", "fps": { "1080p": { "low": 60, "medium": 60, "high": 60, "ultra": 60 }, "1440p": { "low": 60, "medium": 60, "high": 60, "ultra": 58 }, "4K": { "low": 60, "medium": 58, "high": 50, "ultra": 42 } } },
+                { "nombre": "Red Dead Redemption 2", "fps": { "1080p": { "low": 172, "medium": 142, "high": 115, "ultra": 88 }, "1440p": { "low": 130, "medium": 108, "high": 85, "ultra": 65 }, "4K": { "low": 78, "medium": 62, "high": 50, "ultra": 35 } } }
+            ],
+            "creative": [
+                { "programa": "Blender (Render Cycles)", "score": 85, "descripcion": "Renderizado rápido. Excelente para proyectos profesionales de complejidad media-alta." },
+                { "programa": "DaVinci Resolve", "score": 88, "descripcion": "Edición 4K nativa sin problemas. Color grading con nodos complejos fluido." },
+                { "programa": "Adobe Premiere Pro", "score": 85, "descripcion": "Múltiples pistas 4K sin drops. Exportación acelerada por GPU." }
+            ]
+        },
+        "RX 7600|Ryzen 5 7600X": {
+            "juegos": [
+                { "nombre": "Fortnite", "fps": { "1080p": { "low": 190, "medium": 155, "high": 120, "ultra": 95 }, "1440p": { "low": 130, "medium": 105, "high": 82, "ultra": 62 }, "4K": { "low": 70, "medium": 55, "high": 42, "ultra": 30 } } },
+                { "nombre": "CS2", "fps": { "1080p": { "low": 250, "medium": 210, "high": 170, "ultra": 135 }, "1440p": { "low": 182, "medium": 150, "high": 120, "ultra": 95 }, "4K": { "low": 100, "medium": 82, "high": 65, "ultra": 48 } } },
+                { "nombre": "Valorant", "fps": { "1080p": { "low": 370, "medium": 310, "high": 255, "ultra": 205 }, "1440p": { "low": 270, "medium": 225, "high": 185, "ultra": 148 }, "4K": { "low": 155, "medium": 125, "high": 100, "ultra": 78 } } },
+                { "nombre": "Cyberpunk 2077", "fps": { "1080p": { "low": 82, "medium": 65, "high": 48, "ultra": 32 }, "1440p": { "low": 55, "medium": 42, "high": 32, "ultra": 20 }, "4K": { "low": 28, "medium": 22, "high": 16, "ultra": 10 } } },
+                { "nombre": "GTA V", "fps": { "1080p": { "low": 128, "medium": 105, "high": 88, "ultra": 72 }, "1440p": { "low": 92, "medium": 75, "high": 62, "ultra": 50 }, "4K": { "low": 50, "medium": 40, "high": 32, "ultra": 22 } } },
+                { "nombre": "Minecraft", "fps": { "1080p": { "low": 460, "medium": 380, "high": 310, "ultra": 245 }, "1440p": { "low": 340, "medium": 280, "high": 225, "ultra": 178 }, "4K": { "low": 195, "medium": 158, "high": 125, "ultra": 95 } } },
+                { "nombre": "Apex Legends", "fps": { "1080p": { "low": 165, "medium": 135, "high": 108, "ultra": 85 }, "1440p": { "low": 118, "medium": 95, "high": 78, "ultra": 60 }, "4K": { "low": 65, "medium": 52, "high": 42, "ultra": 30 } } },
+                { "nombre": "Call of Duty Warzone", "fps": { "1080p": { "low": 148, "medium": 120, "high": 98, "ultra": 78 }, "1440p": { "low": 105, "medium": 85, "high": 68, "ultra": 52 }, "4K": { "low": 58, "medium": 46, "high": 36, "ultra": 26 } } },
+                { "nombre": "Elden Ring", "fps": { "1080p": { "low": 60, "medium": 60, "high": 58, "ultra": 48 }, "1440p": { "low": 55, "medium": 50, "high": 42, "ultra": 35 }, "4K": { "low": 35, "medium": 28, "high": 22, "ultra": 16 } } },
+                { "nombre": "Red Dead Redemption 2", "fps": { "1080p": { "low": 95, "medium": 78, "high": 60, "ultra": 42 }, "1440p": { "low": 65, "medium": 52, "high": 40, "ultra": 28 }, "4K": { "low": 35, "medium": 27, "high": 20, "ultra": 14 } } }
+            ],
+            "creative": [
+                { "programa": "Blender (Render Cycles)", "score": 48, "descripcion": "Renderizado básico funcional. Escenas sencillas en tiempos aceptables." },
+                { "programa": "DaVinci Resolve", "score": 52, "descripcion": "Edición 1080p aceptable. Para 4K se recomienda usar proxies." },
+                { "programa": "Adobe Premiere Pro", "score": 50, "descripcion": "Funcional para edición básica. Efectos pesados serán lentos." }
+            ]
+        },
+        "RX 7800 XT|Ryzen 7 9700X": {
+            "juegos": [
+                { "nombre": "Fortnite", "fps": { "1080p": { "low": 260, "medium": 220, "high": 175, "ultra": 142 }, "1440p": { "low": 195, "medium": 162, "high": 130, "ultra": 105 }, "4K": { "low": 118, "medium": 95, "high": 75, "ultra": 58 } } },
+                { "nombre": "CS2", "fps": { "1080p": { "low": 350, "medium": 295, "high": 242, "ultra": 195 }, "1440p": { "low": 268, "medium": 222, "high": 182, "ultra": 145 }, "4K": { "low": 158, "medium": 130, "high": 105, "ultra": 80 } } },
+                { "nombre": "Valorant", "fps": { "1080p": { "low": 480, "medium": 405, "high": 335, "ultra": 275 }, "1440p": { "low": 365, "medium": 302, "high": 250, "ultra": 200 }, "4K": { "low": 210, "medium": 172, "high": 140, "ultra": 112 } } },
+                { "nombre": "Cyberpunk 2077", "fps": { "1080p": { "low": 118, "medium": 95, "high": 72, "ultra": 52 }, "1440p": { "low": 85, "medium": 68, "high": 52, "ultra": 38 }, "4K": { "low": 48, "medium": 38, "high": 28, "ultra": 20 } } },
+                { "nombre": "GTA V", "fps": { "1080p": { "low": 168, "medium": 142, "high": 120, "ultra": 100 }, "1440p": { "low": 128, "medium": 108, "high": 90, "ultra": 75 }, "4K": { "low": 78, "medium": 65, "high": 52, "ultra": 40 } } },
+                { "nombre": "Minecraft", "fps": { "1080p": { "low": 570, "medium": 475, "high": 385, "ultra": 310 }, "1440p": { "low": 425, "medium": 355, "high": 288, "ultra": 230 }, "4K": { "low": 260, "medium": 215, "high": 170, "ultra": 135 } } },
+                { "nombre": "Apex Legends", "fps": { "1080p": { "low": 230, "medium": 192, "high": 155, "ultra": 128 }, "1440p": { "low": 175, "medium": 145, "high": 118, "ultra": 95 }, "4K": { "low": 102, "medium": 82, "high": 65, "ultra": 50 } } },
+                { "nombre": "Call of Duty Warzone", "fps": { "1080p": { "low": 205, "medium": 172, "high": 140, "ultra": 112 }, "1440p": { "low": 155, "medium": 128, "high": 105, "ultra": 82 }, "4K": { "low": 90, "medium": 72, "high": 58, "ultra": 44 } } },
+                { "nombre": "Elden Ring", "fps": { "1080p": { "low": 60, "medium": 60, "high": 60, "ultra": 60 }, "1440p": { "low": 60, "medium": 60, "high": 58, "ultra": 50 }, "4K": { "low": 55, "medium": 48, "high": 40, "ultra": 32 } } },
+                { "nombre": "Red Dead Redemption 2", "fps": { "1080p": { "low": 138, "medium": 112, "high": 88, "ultra": 65 }, "1440p": { "low": 100, "medium": 80, "high": 62, "ultra": 46 }, "4K": { "low": 58, "medium": 45, "high": 35, "ultra": 25 } } }
+            ],
+            "creative": [
+                { "programa": "Blender (Render Cycles)", "score": 72, "descripcion": "Buen rendimiento en renderizado. Maneja proyectos de complejidad media sin problemas." },
+                { "programa": "DaVinci Resolve", "score": 75, "descripcion": "Edición 4K fluida. Color grading con LUTs complejos funcional." },
+                { "programa": "Adobe Premiere Pro", "score": 73, "descripcion": "Edición multicapa 4K aceptable. Exportación GPU-acelerada." }
+            ]
+        }
+    },
+    "gpuKeywords": {
+        "RTX 5070": ["5070", "RTX 5070"],
+        "RTX 5080": ["5080", "RTX 5080"],
+        "RTX 4060": ["4060", "RTX 4060"],
+        "RTX 4070 Ti SUPER": ["4070 Ti", "4070Ti", "RTX 4070"],
+        "RX 7600": ["RX 7600", "7600"],
+        "RX 7800 XT": ["RX 7800", "7800 XT"],
+        "RX 7900 XTX": ["RX 7900", "7900 XTX"]
+    },
+    "cpuKeywords": {
+        "Ryzen 7 9700X": ["9700X"],
+        "Ryzen 5 7600X": ["7600X"],
+        "Ryzen 9 7950X3D": ["7950X3D"],
+        "Core i5-14600K": ["14600K", "i5-14600"],
+        "Core i7-14700K": ["14700K", "i7-14700"],
+        "Core i9-14900K": ["14900K", "i9-14900"]
+    }
+}
