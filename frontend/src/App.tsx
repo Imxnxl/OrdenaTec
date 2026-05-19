@@ -16,6 +16,7 @@ import LoginPage from './pages/Login.page';
 import RegisterPage from './pages/Register.page';
 import DashboardPage from './pages/Admin/Dashboard.page';
 import CatalogoPage from './pages/Admin/Catalogo.page';
+import AyudaPage from './pages/Ayuda.page';
 
 /**
  * Componente para rutas protegidas (sólo usuarios autenticados).
@@ -111,6 +112,7 @@ const App: React.FC = () => {
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/register" element={<RegisterPage />} />
                         <Route path="/pedido-confirmado" element={<PedidoConfirmadoPage />} />
+                        <Route path="/ayuda" element={<AyudaPage />} />
                         <Route
                             path="/admin"
                             element={

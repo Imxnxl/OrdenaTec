@@ -86,15 +86,40 @@ const FAQS: FAQ[] = [
     {
         id: 15,
         qu: "¿Cómo contacto al equipo de atención al cliente?",
-        ans: "Puedes comunicarte con nosotros de Lunes a Sábado de 9 AM a 7 PM a través del chat en vivo situado en la esquina inferior derecha, escribiendo a nuestro correo de contacto (soporte@ordenatec.com) o llamando al teléfono 800-ORDENAT."
+        ans: "Puedes comunicarte con nosotros de Lunes a Sábado de 9 AM a 7 PM a través del chat en vivo situado en la esquina inferior derecha, escribiendo a nuestro correo de contacto (ordenatec777@gmail.com) o llamando al teléfono 800-ORDENAT."
     }
 ];
 
 const AyudaPage: React.FC = () => {
     const [openId, setOpenId] = useState<number | null>(1); // Inicia con la primera pregunta abierta
+    const [isFormOpen, setIsFormOpen] = useState(false);
+    const [formData, setFormData] = useState({ nombre: '', correo: '', mensaje: '' });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
 
     const toggleAccordion = (id: number) => {
         setOpenId(prev => prev === id ? null : id);
+    };
+
+    const handleFormSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        // Simular tiempo de envío de red
+        setTimeout(() => {
+            setIsSubmitting(false);
+            setIsSuccess(true);
+            setFormData({ nombre: '', correo: '', mensaje: '' });
+            // Ocultar mensaje de éxito y cerrar formulario automáticamente después de 5 segundos
+            setTimeout(() => {
+                setIsSuccess(false);
+                setIsFormOpen(false);
+            }, 5000);
+        }, 2000);
+    };
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
     };
 
     return (
@@ -134,9 +159,72 @@ const AyudaPage: React.FC = () => {
             <div className="help-contact-banner">
                 <h2>¿Aún tienes dudas?</h2>
                 <p>Nuestro equipo de expertos está listo para ayudarte con tu configuración.</p>
-                <button className="btn btn-primary" onClick={() => window.location.href = 'mailto:soporte@ordenatec.com'}>
-                    Contactar a Soporte
-                </button>
+                
+                {!isFormOpen && !isSuccess && (
+                    <button className="btn btn-primary" onClick={() => setIsFormOpen(true)}>
+                        Contactar a Soporte
+                    </button>
+                )}
+
+                {isFormOpen && !isSuccess && (
+                    <form className="contact-form" onSubmit={handleFormSubmit}>
+                        <div className="form-group">
+                            <label htmlFor="nombre">Nombre</label>
+                            <input 
+                                type="text" 
+                                id="nombre" 
+                                name="nombre" 
+                                value={formData.nombre} 
+                                onChange={handleInputChange} 
+                                required 
+                                placeholder="Tu nombre" 
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="correo">Correo Electrónico</label>
+                            <input 
+                                type="email" 
+                                id="correo" 
+                                name="correo" 
+                                value={formData.correo} 
+                                onChange={handleInputChange} 
+                                required 
+                                placeholder="tu@correo.com" 
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="mensaje">Mensaje</label>
+                            <textarea 
+                                id="mensaje" 
+                                name="mensaje" 
+                                value={formData.mensaje} 
+                                onChange={handleInputChange} 
+                                required 
+                                placeholder="¿En qué podemos ayudarte?" 
+                                rows={4}
+                            ></textarea>
+                        </div>
+                        <div className="form-actions">
+                            <button type="button" className="btn btn-outline" onClick={() => setIsFormOpen(false)} disabled={isSubmitting}>
+                                Cancelar
+                            </button>
+                            <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+                                {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
+                            </button>
+                        </div>
+                    </form>
+                )}
+
+                {isSuccess && (
+                    <div className="contact-success">
+                        <span className="success-icon">✅</span>
+                        <h3>¡Mensaje Enviado!</h3>
+                        <p>Hemos enviado tu consulta a <strong>ordenatec777@gmail.com</strong>. Te contactaremos muy pronto.</p>
+                        <button className="btn btn-outline mt-3" onClick={() => setIsSuccess(false)}>
+                            Enviar otro mensaje
+                        </button>
+                    </div>
+                )}
             </div>
         </div>
     );
