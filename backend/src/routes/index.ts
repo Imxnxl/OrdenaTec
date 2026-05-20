@@ -11,6 +11,7 @@ import pedidoRoutes from './pedido.routes';
 import prearmadaRoutes from './prearmada.routes';
 import iaRoutes from './ia.routes';
 import benchmarkRoutes from './benchmark.routes';
+import adminRoutes from './admin.routes';
 
 const router = Router();
 
@@ -22,6 +23,7 @@ router.use('/pedidos', pedidoRoutes);
 router.use('/prearmadas', prearmadaRoutes);
 router.use('/ia', iaRoutes);
 router.use('/benchmarks', benchmarkRoutes);
+router.use('/admin', adminRoutes);
 
 // Health check
 router.get('/health', (_req, res) => {

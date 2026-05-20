@@ -156,18 +156,33 @@ const CheckoutPage: React.FC = () => {
                 referenciasEnvio: direccion.referenciasEnvio.trim() || null,
             };
 
+            // Crear configuraciones temporales en la BD antes del batch
+            const itemsPayload = [];
             for (const item of items) {
                 const isTemp = item.configuracion.id.startsWith('temp-');
-                await api.post('/pedidos', {
-                    configuracionId: isTemp ? undefined : item.configuracion.id,
-                    componenteIds: isTemp
-                        ? item.configuracion.componentes.map((c) => c.componenteId)
-                        : undefined,
-                    total: item.configuracion.precioTotal * item.cantidad,
-                    metodoPago,
-                    ...payloadDireccion,
-                });
+                if (isTemp) {
+                    // Guardar configuración temporal en BD
+                    const { data: configGuardada } = await api.post('/configuraciones', {
+                        nombre: item.configuracion.nombre || 'Pedido desde carrito',
+                        componenteIds: item.configuracion.componentes.map((c) => c.componenteId),
+                    });
+                    itemsPayload.push({
+                        configuracionId: configGuardada.configuracion.id,
+                        cantidad: item.cantidad,
+                    });
+                } else {
+                    itemsPayload.push({
+                        configuracionId: item.configuracion.id,
+                        cantidad: item.cantidad,
+                    });
+                }
             }
+
+            await api.post('/pedidos/batch', {
+                items: itemsPayload,
+                metodoPago,
+                ...payloadDireccion,
+            });
 
             dispatch(vaciarCarrito());
             toast.mostrar('Pedido confirmado exitosamente', 'success');

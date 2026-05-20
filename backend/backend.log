@@ -1,0 +1,14 @@
+[INFO] 08:56:02 ts-node-dev ver. 2.0.0 (using ts-node ver. 10.9.2, typescript ver. 5.9.3)
+============================================
+  🖥️  OrdenaTEC API
+  🚀 Servidor corriendo en http://localhost:3001
+  📡 Health check: http://localhost:3001/api/health
+============================================
+[INFO] 09:13:59 Restarting: C:\Users\polor\Downloads\OrdenaTec-main(2)\OrdenaTec-main\backend\src\services\producto.service.ts has been modified
+============================================
+  🖥️  OrdenaTEC API
+  🚀 Servidor corriendo en http://localhost:3001
+  📡 Health check: http://localhost:3001/api/health
+============================================
+
+C:\Users\polor\Downloads\OrdenaTec-main(2)\OrdenaTec-main\backend>

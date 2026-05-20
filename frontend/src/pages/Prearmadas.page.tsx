@@ -58,7 +58,7 @@ const PrearmadasPage: React.FC = () => {
     const getTipoEmoji = (tipo: string): string => {
         const map: Record<string, string> = {
             CPU: '🔲', MOTHERBOARD: '🟩', RAM: '📊',
-            GPU: '🎮', ALMACENAMIENTO: '💾', PSU: '⚡', GABINETE: '🖥️',
+            GPU: '🎮', ALMACENAMIENTO: '💾', ALMACENAMIENTO_EXTRA: '💿', PSU: '⚡', GABINETE: '🖥️',
         };
         return map[tipo] || '📦';
     };

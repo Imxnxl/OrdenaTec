@@ -40,4 +40,11 @@ router.put(
     configuracionController.actualizar
 );
 
+// DELETE /api/configuraciones/:id — Eliminar configuración
+router.delete(
+    '/:id',
+    authMiddleware,
+    configuracionController.eliminar
+);
+
 export default router;

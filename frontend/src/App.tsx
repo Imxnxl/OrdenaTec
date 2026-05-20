@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
 import { useAppSelector } from './store';
 import Navbar from './components/layout/Navbar';
+import ErrorBoundary from './components/common/ErrorBoundary';
 
 // Pages
 import ConfiguradorPage from './pages/Configurador.page';
@@ -16,6 +17,9 @@ import LoginPage from './pages/Login.page';
 import RegisterPage from './pages/Register.page';
 import DashboardPage from './pages/Admin/Dashboard.page';
 import CatalogoPage from './pages/Admin/Catalogo.page';
+import PedidosPage from './pages/Admin/Pedidos.page';
+import PrearmadasAdminPage from './pages/Admin/PrearmadasAdmin.page';
+import UsuariosPage from './pages/Admin/Usuarios.page';
 import PrearmadasPage from './pages/Prearmadas.page';
 import IAConfiguradorPage from './pages/IAConfigurador.page';
 import PerifericosPage from './pages/Perifericos.page';
@@ -137,10 +141,11 @@ const App: React.FC = () => {
     return (
         <Router>
             <DisclaimerModal />
-            <div className="app">
-                <Navbar />
-                <main className="main-content">
-                    <Routes>
+            <ErrorBoundary>
+                <div className="app">
+                    <Navbar />
+                    <main className="main-content">
+                        <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/configurador" element={<ConfiguradorPage />} />
                         <Route path="/prearmadas" element={<PrearmadasPage />} />
@@ -182,6 +187,30 @@ const App: React.FC = () => {
                                 </AdminRoute>
                             }
                         />
+                        <Route
+                            path="/admin/pedidos"
+                            element={
+                                <AdminRoute>
+                                    <PedidosPage />
+                                </AdminRoute>
+                            }
+                        />
+                        <Route
+                            path="/admin/prearmadas"
+                            element={
+                                <AdminRoute>
+                                    <PrearmadasAdminPage />
+                                </AdminRoute>
+                            }
+                        />
+                        <Route
+                            path="/admin/usuarios"
+                            element={
+                                <AdminRoute>
+                                    <UsuariosPage />
+                                </AdminRoute>
+                            }
+                        />
                         <Route path="*" element={<Navigate to="/" replace />} />
                     </Routes>
                 </main>
@@ -189,6 +218,7 @@ const App: React.FC = () => {
                     <p>© 2026 OrdenaTEC — Proyecto de Ingeniería de Software</p>
                 </footer>
             </div>
+            </ErrorBoundary>
         </Router>
     );
 };

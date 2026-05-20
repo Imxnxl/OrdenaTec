@@ -19,6 +19,13 @@ router.post(
     pedidoController.crear
 );
 
+// POST /api/pedidos/batch — Crear múltiples pedidos en una transacción (autenticado)
+router.post(
+    '/batch',
+    authMiddleware,
+    pedidoController.crearBatch
+);
+
 // GET /api/pedidos — Listar pedidos del usuario (autenticado)
 router.get('/', authMiddleware, pedidoController.listar);
 

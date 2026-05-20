@@ -5,7 +5,7 @@
 
 import { Request, Response, NextFunction } from 'express';
 import prisma from '../lib/prisma';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { JwtPayload, Rol } from '../types';
 const SALT_ROUNDS = 10;
