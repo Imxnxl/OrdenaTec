@@ -17,6 +17,7 @@ import {
 } from '../utils/formatters';
 import Loading from '../components/common/Loading';
 import { useToast } from '../components/common/Toast';
+import LiquidGlassCard from '../liquid-glass/LiquidGlassCard';
 
 const ICONOS: Record<string, string> = {
     MONITOR: '🖥️',
@@ -143,7 +144,11 @@ const PerifericosPage: React.FC = () => {
                     {componentesFiltrados.map((comp) => {
                         const attrs = comp.atributos as Record<string, unknown>;
                         return (
-                            <div key={comp.id} className="componente-card">
+                            <LiquidGlassCard
+                                key={comp.id}
+                                className="componente-card"
+                                glassOptions={{ borderRadius: 12, scale: -140, frost: 0.06, saturation: 1.15 }}
+                            >
                                 {comp.imagenUrl && (
                                     <div className="componente-card__imagen">
                                         <img
@@ -190,7 +195,7 @@ const PerifericosPage: React.FC = () => {
                                 >
                                     🛒 Agregar al carrito
                                 </button>
-                            </div>
+                            </LiquidGlassCard>
                         );
                     })}
                 </div>

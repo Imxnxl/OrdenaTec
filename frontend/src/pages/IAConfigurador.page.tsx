@@ -11,6 +11,7 @@ import { agregarAlCarrito } from '../store/slices/carrito.slice';
 import { iaService, IAResponse } from '../services/ia.service';
 import { Configuracion } from '../types';
 import { formatearPrecio } from '../utils/formatters';
+import LiquidGlassCard from '../liquid-glass/LiquidGlassCard';
 
 const SUGERENCIAS = [
     'PC gaming para jugar a 1440p con presupuesto de $25,000 MXN',
@@ -24,7 +25,7 @@ const SUGERENCIAS = [
 const getTipoEmoji = (tipo: string): string => {
     const map: Record<string, string> = {
         CPU: '🔲', MOTHERBOARD: '🟩', RAM: '📊',
-        GPU: '🎮', ALMACENAMIENTO: '💾', PSU: '⚡', GABINETE: '🖥️',
+        GPU: '🎮', ALMACENAMIENTO: '💾', ALMACENAMIENTO_EXTRA: '💿', PSU: '⚡', GABINETE: '🖥️',
     };
     return map[tipo] || '📦';
 };
@@ -199,7 +200,11 @@ const IAConfiguradorPage: React.FC = () => {
                     {/* Component cards */}
                     <div className="ia-componentes">
                         {resultado.componentes.map((comp) => (
-                            <div key={comp.id} className="ia-componente-card">
+                            <LiquidGlassCard
+                                key={comp.id}
+                                className="ia-componente-card"
+                                glassOptions={{ borderRadius: 12, scale: -100, frost: 0.04, saturation: 1.1 }}
+                            >
                                 <div className="ia-componente-card__icon">
                                     {getTipoEmoji(comp.tipo)}
                                 </div>
@@ -210,7 +215,7 @@ const IAConfiguradorPage: React.FC = () => {
                                 <span className="ia-componente-card__precio">
                                     {formatearPrecio(comp.precio)}
                                 </span>
-                            </div>
+                            </LiquidGlassCard>
                         ))}
                     </div>
 

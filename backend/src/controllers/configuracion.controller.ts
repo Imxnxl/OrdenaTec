@@ -120,3 +120,20 @@ export const actualizar = async (
         next(error);
     }
 };
+
+/**
+ * DELETE /api/configuraciones/:id
+ * Elimina una configuración.
+ */
+export const eliminar = async (
+    req: AuthRequest,
+    res: Response,
+    next: NextFunction
+): Promise<void> => {
+    try {
+        await ConfiguracionService.eliminar(req.params.id);
+        res.json({ mensaje: 'Configuración eliminada exitosamente' });
+    } catch (error) {
+        next(error);
+    }
+};

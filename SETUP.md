@@ -44,6 +44,15 @@ npm run dev
 
 The backend runs on **http://localhost:3001** by default.
 
+### 2.5 Running Tests
+
+```bash
+cd backend
+npm test
+```
+
+Runs 19 unit tests covering the compatibility engine (socket validation, RAM generation, PSU wattage, GPU dimensions, pricing, and component filtering).
+
 ### 3. Frontend Setup
 
 ```bash

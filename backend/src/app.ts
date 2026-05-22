@@ -6,6 +6,7 @@
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
 import routes from './routes';
 import { errorMiddleware, notFoundMiddleware } from './middlewares/error.middleware';
 
@@ -29,6 +30,19 @@ app.use(express.json({ limit: '10mb' }));
 
 // Parse URL-encoded body
 app.use(express.urlencoded({ extended: true }));
+
+// --- Rate Limiting ---
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutos
+    max: 200, // límite por IP
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: {
+        error: 'Demasiadas solicitudes',
+        mensaje: 'Has superado el límite de solicitudes. Intenta de nuevo en 15 minutos.',
+    },
+});
+app.use('/api', limiter);
 
 // --- Rutas de la API ---
 app.use('/api', routes);

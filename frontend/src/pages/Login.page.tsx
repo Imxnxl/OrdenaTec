@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../store';
 import { loginUsuario, clearError } from '../store/slices/auth.slice';
+import LiquidGlassCard from '../liquid-glass/LiquidGlassCard';
 
 const LoginPage: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -28,7 +29,7 @@ const LoginPage: React.FC = () => {
 
     return (
         <div className="auth-page">
-            <div className="auth-card">
+            <LiquidGlassCard className="auth-card" glassOptions={{ borderRadius: 16, scale: -160, frost: 0.06, saturation: 1.15 }}>
                 <div className="auth-header">
                     <h1>🖥️ OrdenaTEC</h1>
                     <p>Inicia sesión en tu cuenta</p>
@@ -78,7 +79,7 @@ const LoginPage: React.FC = () => {
                         <Link to="/register">Regístrate aquí</Link>
                     </p>
                 </div>
-            </div>
+            </LiquidGlassCard>
         </div>
     );
 };

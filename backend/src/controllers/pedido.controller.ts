@@ -29,6 +29,7 @@ export const crear = async (
             configuracionId,
             componenteIds,
             metodoPago,
+            cantidad: cantidadRaw,
             total: totalEnviado,
             // ---- Dirección de envío (legacy + desglosada) ----
             nombreDestinatario,
@@ -51,6 +52,8 @@ export const crear = async (
             referenciasEnvio,
         } = req.body;
 
+        const cantidad = Math.max(1, parseInt(cantidadRaw as string) || 1);
+
         // Determinar el total y la configuración
         let total = 0;
         let configId = configuracionId;
@@ -68,10 +71,9 @@ export const crear = async (
                 });
                 return;
             }
-            total = configuracion.precioTotal;
+            total = configuracion.precioTotal * cantidad;
         } else if (componenteIds && componenteIds.length > 0) {
             // Pedido basado en componentes sueltos (carrito temporal)
-            // Crear configuración en la BD primero
             const componentes = await prisma.componente.findMany({
                 where: { id: { in: componenteIds } },
             });
@@ -84,7 +86,7 @@ export const crear = async (
                 return;
             }
 
-            total = componentes.reduce((sum: number, c: any) => sum + c.precio, 0);
+            total = componentes.reduce((sum: number, c: any) => sum + c.precio, 0) * cantidad;
 
             const config = await prisma.configuracion.create({
                 data: {
@@ -100,7 +102,6 @@ export const crear = async (
             });
             configId = config.id;
         } else if (totalEnviado && totalEnviado > 0) {
-            // Fallback: usar el total enviado por el frontend
             total = totalEnviado;
         }
 
@@ -114,7 +115,7 @@ export const crear = async (
 
         // Crear pedido con transacción (incluye descuento de stock)
         const pedido = await prisma.$transaction(async (tx) => {
-            // Descontar stock de los componentes
+            // Descontar stock de los componentes (x cantidad)
             if (configId) {
                 const configConComponentes = await tx.configuracion.findUnique({
                     where: { id: configId },
@@ -123,15 +124,15 @@ export const crear = async (
 
                 if (configConComponentes) {
                     for (const cc of configConComponentes.componentes) {
-                        if (cc.componente.stock <= 0) {
+                        if (cc.componente.stock < cantidad) {
                             throw Object.assign(
-                                new Error(`${cc.componente.nombre} está agotado`),
+                                new Error(`Stock insuficiente de ${cc.componente.nombre}: disponible ${cc.componente.stock}, requerido ${cantidad}`),
                                 { statusCode: 400 }
                             );
                         }
                         await tx.componente.update({
                             where: { id: cc.componente.id },
-                            data: { stock: { decrement: 1 } },
+                            data: { stock: { decrement: cantidad } },
                         });
                     }
                 }
@@ -295,6 +296,124 @@ export const obtenerPorId = async (
  * PUT /api/pedidos/:id/estado (admin)
  * Actualiza el estado de un pedido.
  */
+/**
+ * POST /api/pedidos/batch
+ * Crea múltiples pedidos en una sola transacción (carrito completo).
+ */
+export const crearBatch = async (
+    req: AuthRequest,
+    res: Response,
+    next: NextFunction
+): Promise<void> => {
+    try {
+        if (!req.user) {
+            res.status(401).json({ error: 'No autenticado', mensaje: 'Debe iniciar sesión' });
+            return;
+        }
+
+        const { items, ...datosComunes } = req.body;
+
+        if (!items || !Array.isArray(items) || items.length === 0) {
+            res.status(400).json({ error: 'Datos inválidos', mensaje: 'Debe incluir al menos un item' });
+            return;
+        }
+
+        const pedidos = await prisma.$transaction(async (tx) => {
+            const resultados = [];
+
+            for (const item of items) {
+                const cantidad = Math.max(1, parseInt(item.cantidad as string) || 1);
+                const configId = item.configuracionId;
+
+                if (!configId) {
+                    throw Object.assign(new Error('Cada item debe tener un configuracionId'), { statusCode: 400 });
+                }
+
+                // Validar que la configuración existe y pertenece al usuario
+                const configExistente = await tx.configuracion.findUnique({
+                    where: { id: configId },
+                    include: { componentes: { include: { componente: true } } },
+                });
+
+                if (!configExistente) {
+                    throw Object.assign(new Error(`Configuración ${configId} no encontrada`), { statusCode: 404 });
+                }
+
+                const total = configExistente.precioTotal * cantidad;
+
+                // Descontar stock
+                for (const cc of configExistente.componentes) {
+                    if (cc.componente.stock < cantidad) {
+                        throw Object.assign(
+                            new Error(`Stock insuficiente de ${cc.componente.nombre}: disponible ${cc.componente.stock}, requerido ${cantidad}`),
+                            { statusCode: 400 }
+                        );
+                    }
+                    await tx.componente.update({
+                        where: { id: cc.componente.id },
+                        data: { stock: { decrement: cantidad } },
+                    });
+                }
+
+                const nuevoPedido = await tx.pedido.create({
+                    data: {
+                        usuarioId: req.user!.userId,
+                        configuracionId: configId,
+                        estado: 'PENDIENTE',
+                        total,
+                        nombreDestinatario: datosComunes.nombreDestinatario,
+                        nombreDestinatarioPila: datosComunes.nombreDestinatarioPila || null,
+                        apellidoPaterno: datosComunes.apellidoPaterno || null,
+                        apellidoMaterno: datosComunes.apellidoMaterno || null,
+                        telefonoContacto: datosComunes.telefonoContacto,
+                        telefonoAlternativo: datosComunes.telefonoAlternativo || null,
+                        calle: datosComunes.calle,
+                        numeroExterior: datosComunes.numeroExterior,
+                        numeroInterior: datosComunes.numeroInterior || null,
+                        entreCalles: datosComunes.entreCalles || null,
+                        colonia: datosComunes.colonia,
+                        alcaldiaMunicipio: datosComunes.alcaldiaMunicipio || null,
+                        ciudad: datosComunes.ciudad,
+                        estadoEnvio: datosComunes.estadoEnvio,
+                        codigoPostal: datosComunes.codigoPostal,
+                        pais: datosComunes.pais,
+                        tipoVivienda: datosComunes.tipoVivienda || null,
+                        referenciasEnvio: datosComunes.referenciasEnvio || null,
+                    },
+                });
+
+                await tx.pago.create({
+                    data: {
+                        pedidoId: nuevoPedido.id,
+                        monto: total,
+                        metodo: datosComunes.metodoPago || 'simulado',
+                        estado: 'COMPLETADO',
+                    },
+                });
+
+                const pedidoFinal = await tx.pedido.update({
+                    where: { id: nuevoPedido.id },
+                    data: { estado: 'PAGADO' },
+                    include: {
+                        configuracion: {
+                            include: { componentes: { include: { componente: true } } },
+                        },
+                        pagos: true,
+                    },
+                });
+
+                resultados.push(pedidoFinal);
+            }
+
+            return resultados;
+        });
+
+        res.status(201).json({ mensaje: 'Pedidos creados exitosamente', pedidos });
+    } catch (error) {
+        next(error);
+    }
+};
+
 export const actualizarEstado = async (
     req: AuthRequest,
     res: Response,

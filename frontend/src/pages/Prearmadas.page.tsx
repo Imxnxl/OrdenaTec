@@ -12,6 +12,7 @@ import { agregarAlCarrito } from '../store/slices/carrito.slice';
 import { Configuracion } from '../types';
 import { formatearPrecio } from '../utils/formatters';
 import Loading from '../components/common/Loading';
+import LiquidGlassCard from '../liquid-glass/LiquidGlassCard';
 
 const CATEGORIAS = ['Todas', 'Gaming', 'Workstation'];
 
@@ -58,7 +59,7 @@ const PrearmadasPage: React.FC = () => {
     const getTipoEmoji = (tipo: string): string => {
         const map: Record<string, string> = {
             CPU: '🔲', MOTHERBOARD: '🟩', RAM: '📊',
-            GPU: '🎮', ALMACENAMIENTO: '💾', PSU: '⚡', GABINETE: '🖥️',
+            GPU: '🎮', ALMACENAMIENTO: '💾', ALMACENAMIENTO_EXTRA: '💿', PSU: '⚡', GABINETE: '🖥️',
         };
         return map[tipo] || '📦';
     };
@@ -110,9 +111,10 @@ const PrearmadasPage: React.FC = () => {
                         const ram = attrs('RAM');
 
                         return (
-                            <div
+                            <LiquidGlassCard
                                 key={pc.id}
                                 className={`prearmada-card ${(pc as any).destacada ? 'prearmada-card--featured' : ''}`}
+                                glassOptions={{ borderRadius: 16, scale: -160, frost: 0.06, saturation: 1.15 }}
                             >
                                 {(pc as any).destacada && (
                                     <div className="prearmada-badge">⭐ Destacada</div>
@@ -170,7 +172,7 @@ const PrearmadasPage: React.FC = () => {
                                         </button>
                                     </div>
                                 </div>
-                            </div>
+                            </LiquidGlassCard>
                         );
                     })}
                 </div>

@@ -1,11 +1,5 @@
-// ============================================
-// OrdenaTEC — PasoComponente (Generic Step)
-// Generic step component for the PC builder.
-// Filtra automáticamente los componentes incompatibles
-// con los ya seleccionados para no mostrarlos al usuario.
-// ============================================
-
 import React, { useEffect, useMemo, useState } from 'react';
+import LiquidGlassCard from '../../liquid-glass/LiquidGlassCard';
 import { Componente, TipoComponente, PASOS_CONFIGURADOR } from '../../types';
 import { componenteService } from '../../services/componente.service';
 import { useAppDispatch, useAppSelector } from '../../store';
@@ -35,7 +29,6 @@ const PasoComponente: React.FC<PasoComponenteProps> = ({ tipo, titulo, descripci
     );
     const seleccionado = componentesSeleccionados[tipo];
 
-    // IDs de los demás componentes seleccionados — se usan para filtrar incompatibles.
     const idsOtrosSeleccionados = useMemo(
         () =>
             Object.entries(componentesSeleccionados)
@@ -49,8 +42,6 @@ const PasoComponente: React.FC<PasoComponenteProps> = ({ tipo, titulo, descripci
     const [error, setError] = useState<string | null>(null);
     const [busqueda, setBusqueda] = useState('');
 
-    // El endpoint devuelve sólo los compatibles; si no hay otros seleccionados,
-    // se comporta como listar normal.
     const llaveOtros = idsOtrosSeleccionados.join(',');
 
     useEffect(() => {
@@ -166,10 +157,11 @@ const PasoComponente: React.FC<PasoComponenteProps> = ({ tipo, titulo, descripci
                         const attrs = componente.atributos as Record<string, unknown>;
 
                         return (
-                            <div
+                            <LiquidGlassCard
                                 key={componente.id}
                                 className={`componente-card ${isSelected ? 'componente-card--selected' : ''}`}
                                 onClick={() => handleSeleccionar(componente)}
+                                glassOptions={{ borderRadius: 12, scale: -140, frost: 0.06, saturation: 1.15 }}
                             >
                                 {componente.imagenUrl && (
                                     <div className="componente-card__imagen">
@@ -213,7 +205,7 @@ const PasoComponente: React.FC<PasoComponenteProps> = ({ tipo, titulo, descripci
                                 >
                                     {isSelected ? '✓ Seleccionado' : 'Seleccionar'}
                                 </button>
-                            </div>
+                            </LiquidGlassCard>
                         );
                     })}
                 </div>
