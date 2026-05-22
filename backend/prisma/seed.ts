@@ -14,6 +14,7 @@ async function main() {
             precio: 6500.00,
             stock: 12,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1591290621437-ec9e8f5bca5a?w=500&q=80",
             atributos: { socket: "AM5", consumo: 65 }
         },
         {
@@ -23,6 +24,7 @@ async function main() {
             precio: 4200.00,
             stock: 18,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1591290621437-ec9e8f5bca5a?w=500&q=80",
             atributos: { socket: "AM5", consumo: 105 }
         },
         {
@@ -32,6 +34,7 @@ async function main() {
             precio: 12500.00,
             stock: 3,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1591290621437-ec9e8f5bca5a?w=500&q=80",
             atributos: { socket: "AM5", consumo: 120 }
         },
         {
@@ -41,6 +44,7 @@ async function main() {
             precio: 5800.00,
             stock: 5,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1571294147301-f60c45ea3e39?w=500&q=80",
             atributos: { socket: "LGA1700", consumo: 125 }
         },
         {
@@ -50,6 +54,7 @@ async function main() {
             precio: 7900.00,
             stock: 8,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1571294147301-f60c45ea3e39?w=500&q=80",
             atributos: { socket: "LGA1700", consumo: 125 }
         },
         {
@@ -59,6 +64,7 @@ async function main() {
             precio: 11200.00,
             stock: 4,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1571294147301-f60c45ea3e39?w=500&q=80",
             atributos: { socket: "LGA1700", consumo: 125 }
         },
         {
@@ -68,6 +74,7 @@ async function main() {
             precio: 11500.00,
             stock: 4,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&q=80",
             atributos: { vram: "12GB", consumo: 250, longitudMM: 280 }
         },
         {
@@ -77,6 +84,7 @@ async function main() {
             precio: 19500.00,
             stock: 2,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&q=80",
             atributos: { vram: "16GB", consumo: 320, longitudMM: 310 }
         },
         {
@@ -86,6 +94,7 @@ async function main() {
             precio: 5800.00,
             stock: 22,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&q=80",
             atributos: { vram: "8GB", consumo: 115, longitudMM: 240 }
         },
         {
@@ -95,6 +104,7 @@ async function main() {
             precio: 15800.00,
             stock: 6,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&q=80",
             atributos: { vram: "16GB", consumo: 285, longitudMM: 305 }
         },
         {
@@ -104,6 +114,7 @@ async function main() {
             precio: 5200.00,
             stock: 15,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&q=80",
             atributos: { vram: "8GB", consumo: 165, longitudMM: 240 }
         },
         {
@@ -113,6 +124,7 @@ async function main() {
             precio: 9800.00,
             stock: 8,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&q=80",
             atributos: { vram: "16GB", consumo: 263, longitudMM: 320 }
         },
         {
@@ -122,6 +134,7 @@ async function main() {
             precio: 18500.00,
             stock: 3,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&q=80",
             atributos: { vram: "24GB", consumo: 355, longitudMM: 344 }
         },
         {
@@ -131,6 +144,7 @@ async function main() {
             precio: 2100.00,
             stock: 25,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1516321318423-f06b0b5a0908?w=500&q=80",
             atributos: { tipo: "DDR5", velocidad: 5600, capacidad_gb: 32 }
         },
         {
@@ -140,6 +154,7 @@ async function main() {
             precio: 4500.00,
             stock: 10,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1516321318423-f06b0b5a0908?w=500&q=80",
             atributos: { tipo: "DDR5", velocidad: 6000, capacidad_gb: 64 }
         },
         {
@@ -149,6 +164,7 @@ async function main() {
             precio: 2800.00,
             stock: 14,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1516321318423-f06b0b5a0908?w=500&q=80",
             atributos: { tipo: "DDR5", velocidad: 6400, capacidad_gb: 32 }
         },
         {
@@ -158,6 +174,7 @@ async function main() {
             precio: 850.00,
             stock: 40,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1516321318423-f06b0b5a0908?w=500&q=80",
             atributos: { tipo: "DDR4", velocidad: 3200, capacidad_gb: 16 }
         },
         {
@@ -167,6 +184,7 @@ async function main() {
             precio: 4200.00,
             stock: 7,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1563906267537-b85556eaeb60?w=500&q=80",
             atributos: { socket: "AM5", tipoRAM: "DDR5", formato: "ATX" }
         },
         {
@@ -176,6 +194,7 @@ async function main() {
             precio: 8500.00,
             stock: 4,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1563906267537-b85556eaeb60?w=500&q=80",
             atributos: { socket: "AM5", tipoRAM: "DDR5", formato: "E-ATX" }
         },
         {
@@ -185,6 +204,7 @@ async function main() {
             precio: 3200.00,
             stock: 12,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1563906267537-b85556eaeb60?w=500&q=80",
             atributos: { socket: "LGA1700", tipoRAM: "DDR4", formato: "ATX" }
         },
         {
@@ -194,6 +214,7 @@ async function main() {
             precio: 3900.00,
             stock: 10,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1563906267537-b85556eaeb60?w=500&q=80",
             atributos: { socket: "LGA1700", tipoRAM: "DDR5", formato: "ATX" }
         },
         {
@@ -203,6 +224,7 @@ async function main() {
             precio: 2400.00,
             stock: 15,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1604307176777-b7b2b02f2d4d?w=500&q=80",
             atributos: { potenciaW: 850, certificacion: "Gold" }
         },
         {
@@ -212,6 +234,7 @@ async function main() {
             precio: 3200.00,
             stock: 8,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1604307176777-b7b2b02f2d4d?w=500&q=80",
             atributos: { potenciaW: 1000, certificacion: "Gold" }
         },
         {
@@ -221,6 +244,7 @@ async function main() {
             precio: 1800.00,
             stock: 20,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1604307176777-b7b2b02f2d4d?w=500&q=80",
             atributos: { potenciaW: 650, certificacion: "Gold" }
         },
         {
@@ -230,6 +254,7 @@ async function main() {
             precio: 1800.00,
             stock: 9,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1587829191301-f282901e1f18?w=500&q=80",
             atributos: { factorForma: "ATX", maxLongitudGPUMM: 365 }
         },
         {
@@ -239,6 +264,7 @@ async function main() {
             precio: 2100.00,
             stock: 14,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1587829191301-f282901e1f18?w=500&q=80",
             atributos: { factorForma: "E-ATX", maxLongitudGPUMM: 360 }
         },
         {
@@ -248,6 +274,7 @@ async function main() {
             precio: 3100.00,
             stock: 6,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1587829191301-f282901e1f18?w=500&q=80",
             atributos: { factorForma: "E-ATX", maxLongitudGPUMM: 426 }
         },
         {
@@ -257,6 +284,7 @@ async function main() {
             precio: 1650.00,
             stock: 30,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&q=80",
             atributos: { tipo: "NVMe", capacidad_tb: 1 }
         },
         {
@@ -266,6 +294,7 @@ async function main() {
             precio: 3400.00,
             stock: 12,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&q=80",
             atributos: { tipo: "NVMe", capacidad_tb: 2 }
         },
         {
@@ -275,6 +304,7 @@ async function main() {
             precio: 1100.00,
             stock: 45,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&q=80",
             atributos: { tipo: "NVMe", capacidad_tb: 1 }
         },
         {
@@ -284,6 +314,7 @@ async function main() {
             precio: 950.00,
             stock: 25,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&q=80",
             atributos: { tipo: "HDD", capacidad_tb: 2 }
         },
         // ---- MEME COMPONENTS ----
@@ -294,6 +325,7 @@ async function main() {
             precio: 250000.00,
             stock: 1,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1591290621437-ec9e8f5bca5a?w=500&q=80",
             atributos: { socket: "SP5", consumo: 400 }
         },
         {
@@ -303,6 +335,7 @@ async function main() {
             precio: 65000.00,
             stock: 1,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1563906267537-b85556eaeb60?w=500&q=80",
             atributos: { socket: "SP5", tipoRAM: "DDR6", consumo: 80 }
         },
         {
@@ -312,6 +345,7 @@ async function main() {
             precio: 800000.00,
             stock: 1,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1516321318423-f06b0b5a0908?w=500&q=80",
             atributos: { tipo: "DDR6", capacidad_gb: 512, velocidad: 20000, consumo: 120 }
         },
         {
@@ -321,6 +355,7 @@ async function main() {
             precio: 500000.00,
             stock: 1,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&q=80",
             atributos: { vram: "100GB", consumo: 900, longitudMM: 420 }
         },
         {
@@ -330,6 +365,7 @@ async function main() {
             precio: 350000.00,
             stock: 1,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&q=80",
             atributos: { tipo: "NVMe RAID", capacidad_tb: 100, consumo: 50 }
         },
         {
@@ -339,6 +375,7 @@ async function main() {
             precio: 85000.00,
             stock: 1,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1604307176777-b7b2b02f2d4d?w=500&q=80",
             atributos: { potenciaW: 5000, consumo: 0 }
         },
         {
@@ -348,6 +385,7 @@ async function main() {
             precio: 150.00,
             stock: 1,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1587829191301-f282901e1f18?w=500&q=80",
             atributos: { maxLongitudGPUMM: 180, consumo: 0 }
         },
         // ============================================
@@ -360,6 +398,7 @@ async function main() {
             precio: 8500.00,
             stock: 11,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1633356122544-f134324331cd?w=500&q=80",
             atributos: { tamanoPulgadas: 27, resolucion: "2560x1440", tasaRefresco: 180, panel: "IPS", conectores: "HDMI 2.1, DisplayPort 1.4" }
         },
         {
@@ -369,6 +408,7 @@ async function main() {
             precio: 7200.00,
             stock: 8,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1633356122544-f134324331cd?w=500&q=80",
             atributos: { tamanoPulgadas: 32, resolucion: "2560x1440", tasaRefresco: 165, panel: "VA", conectores: "HDMI, DisplayPort" }
         },
         {
@@ -378,6 +418,7 @@ async function main() {
             precio: 3900.00,
             stock: 20,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1633356122544-f134324331cd?w=500&q=80",
             atributos: { tamanoPulgadas: 24, resolucion: "1920x1080", tasaRefresco: 144, panel: "IPS", conectores: "HDMI, DisplayPort, VGA" }
         },
         {
@@ -387,6 +428,7 @@ async function main() {
             precio: 7800.00,
             stock: 6,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1633356122544-f134324331cd?w=500&q=80",
             atributos: { tamanoPulgadas: 27, resolucion: "3840x2160", tasaRefresco: 60, panel: "IPS", conectores: "HDMI, DisplayPort" }
         },
         // ============================================
@@ -399,6 +441,7 @@ async function main() {
             precio: 2800.00,
             stock: 14,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1587829191301-f282901e1f18?w=500&q=80",
             atributos: { tipo: "Mecánico", layout: "Latinoamericano", conexion: "USB", rgb: true }
         },
         {
@@ -408,6 +451,7 @@ async function main() {
             precio: 950.00,
             stock: 35,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1587829191301-f282901e1f18?w=500&q=80",
             atributos: { tipo: "Mecánico", layout: "Latinoamericano", conexion: "USB", rgb: true }
         },
         {
@@ -417,6 +461,7 @@ async function main() {
             precio: 3900.00,
             stock: 7,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1587829191301-f282901e1f18?w=500&q=80",
             atributos: { tipo: "Mecánico", layout: "Latinoamericano", conexion: "USB", rgb: true }
         },
         {
@@ -426,6 +471,7 @@ async function main() {
             precio: 1100.00,
             stock: 22,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1587829191301-f282901e1f18?w=500&q=80",
             atributos: { tipo: "Membrana", layout: "Latinoamericano", conexion: "Bluetooth", rgb: false }
         },
         // ============================================
@@ -438,6 +484,7 @@ async function main() {
             precio: 1350.00,
             stock: 28,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&q=80",
             atributos: { dpi: 25000, botones: 11, conexion: "USB", rgb: true }
         },
         {
@@ -447,6 +494,7 @@ async function main() {
             precio: 3100.00,
             stock: 10,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&q=80",
             atributos: { dpi: 30000, botones: 5, conexion: "Inalámbrico", rgb: false }
         },
         {
@@ -456,6 +504,7 @@ async function main() {
             precio: 420.00,
             stock: 50,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&q=80",
             atributos: { dpi: 10000, botones: 7, conexion: "USB", rgb: true }
         },
         {
@@ -465,6 +514,7 @@ async function main() {
             precio: 2400.00,
             stock: 15,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&q=80",
             atributos: { dpi: 8000, botones: 7, conexion: "Bluetooth", rgb: false }
         },
         // ============================================
@@ -477,6 +527,7 @@ async function main() {
             precio: 1900.00,
             stock: 18,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80",
             atributos: { tipo: "Over-ear", conexion: "USB", microfono: true, surround: "7.1" }
         },
         {
@@ -486,6 +537,7 @@ async function main() {
             precio: 3200.00,
             stock: 9,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80",
             atributos: { tipo: "Over-ear", conexion: "Inalámbrico", microfono: true, surround: "7.1" }
         },
         {
@@ -495,6 +547,7 @@ async function main() {
             precio: 850.00,
             stock: 30,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80",
             atributos: { tipo: "Over-ear", conexion: "USB", microfono: true, surround: "7.1" }
         },
         {
@@ -504,117 +557,160 @@ async function main() {
             precio: 7900.00,
             stock: 5,
             activo: true,
+            imagenUrl: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80",
             atributos: { tipo: "Over-ear", conexion: "Bluetooth", microfono: true, surround: "Estéreo" }
         },
 
         // ====== Variedad adicional de componentes de PC (2026-05) ======
         // CPU
         { sku: "CPU-AMD-9600X", nombre: "AMD Ryzen 5 9600X", tipo: "CPU", precio: 4900.00, stock: 14, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1591290621437-ec9e8f5bca5a?w=500&q=80",
           atributos: { socket: "AM5", consumo: 65 } },
         { sku: "CPU-AMD-9950X", nombre: "AMD Ryzen 9 9950X", tipo: "CPU", precio: 13800.00, stock: 6, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1591290621437-ec9e8f5bca5a?w=500&q=80",
           atributos: { socket: "AM5", consumo: 170 } },
         { sku: "CPU-INT-14100", nombre: "Intel Core i3-14100", tipo: "CPU", precio: 2700.00, stock: 25, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1571294147301-f60c45ea3e39?w=500&q=80",
           atributos: { socket: "LGA1700", consumo: 60 } },
         { sku: "CPU-INT-13600K", nombre: "Intel Core i5-13600K", tipo: "CPU", precio: 5200.00, stock: 10, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1571294147301-f60c45ea3e39?w=500&q=80",
           atributos: { socket: "LGA1700", consumo: 125 } },
 
         // GPU
         { sku: "GPU-AMD-7800XT", nombre: "AMD Radeon RX 7800 XT", tipo: "GPU", precio: 9400.00, stock: 8, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&q=80",
           atributos: { vram: "16GB", consumo: 263, longitudMM: 287 } },
         { sku: "GPU-AMD-7900XTX", nombre: "AMD Radeon RX 7900 XTX", tipo: "GPU", precio: 17600.00, stock: 4, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&q=80",
           atributos: { vram: "24GB", consumo: 355, longitudMM: 287 } },
         { sku: "GPU-NV-4070S", nombre: "NVIDIA GeForce RTX 4070 SUPER", tipo: "GPU", precio: 12900.00, stock: 7, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&q=80",
           atributos: { vram: "12GB", consumo: 220, longitudMM: 304 } },
         { sku: "GPU-NV-4090", nombre: "NVIDIA GeForce RTX 4090", tipo: "GPU", precio: 32500.00, stock: 2, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&q=80",
           atributos: { vram: "24GB", consumo: 450, longitudMM: 336 } },
         { sku: "GPU-NV-5090", nombre: "NVIDIA GeForce RTX 5090 (retail)", tipo: "GPU", precio: 38900.00, stock: 1, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&q=80",
           atributos: { vram: "32GB", consumo: 575, longitudMM: 358 } },
 
         // RAM
         { sku: "RAM-COR-32GB-5200", nombre: "Corsair Vengeance 32GB DDR5-5200", tipo: "RAM", precio: 2300.00, stock: 22, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1516321318423-f06b0b5a0908?w=500&q=80",
           atributos: { tipo: "DDR5", velocidad: 5200, capacidad_gb: 32 } },
         { sku: "RAM-GSK-64GB-6000", nombre: "G.Skill Trident Z5 64GB DDR5-6000", tipo: "RAM", precio: 5900.00, stock: 8, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1516321318423-f06b0b5a0908?w=500&q=80",
           atributos: { tipo: "DDR5", velocidad: 6000, capacidad_gb: 64 } },
         { sku: "RAM-KIN-32GB-3600", nombre: "Kingston Fury 32GB DDR4-3600", tipo: "RAM", precio: 2100.00, stock: 18, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1516321318423-f06b0b5a0908?w=500&q=80",
           atributos: { tipo: "DDR4", velocidad: 3600, capacidad_gb: 32 } },
         { sku: "RAM-COR-16GB-6000", nombre: "Corsair Vengeance 16GB DDR5-6000", tipo: "RAM", precio: 1500.00, stock: 30, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1516321318423-f06b0b5a0908?w=500&q=80",
           atributos: { tipo: "DDR5", velocidad: 6000, capacidad_gb: 16 } },
 
         // MOTHERBOARD
         { sku: "MB-MSI-B650M", nombre: "MSI PRO B650M-A WiFi", tipo: "MOTHERBOARD", precio: 3700.00, stock: 12, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1563906267537-b85556eaeb60?w=500&q=80",
           atributos: { socket: "AM5", tipoRAM: "DDR5", formato: "Micro-ATX" } },
         { sku: "MB-ASUS-X670E", nombre: "ASUS ROG STRIX X670E-E", tipo: "MOTHERBOARD", precio: 9800.00, stock: 4, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1563906267537-b85556eaeb60?w=500&q=80",
           atributos: { socket: "AM5", tipoRAM: "DDR5", formato: "ATX" } },
         { sku: "MB-GIG-B760", nombre: "Gigabyte B760M DS3H", tipo: "MOTHERBOARD", precio: 2700.00, stock: 16, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1563906267537-b85556eaeb60?w=500&q=80",
           atributos: { socket: "LGA1700", tipoRAM: "DDR4", formato: "Micro-ATX" } },
         { sku: "MB-ASUS-Z790E", nombre: "ASUS ROG STRIX Z790-E Gaming", tipo: "MOTHERBOARD", precio: 9100.00, stock: 5, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1563906267537-b85556eaeb60?w=500&q=80",
           atributos: { socket: "LGA1700", tipoRAM: "DDR5", formato: "ATX" } },
 
         // PSU
         { sku: "PSU-COR-550", nombre: "Corsair CV550 Bronze 550W", tipo: "PSU", precio: 1100.00, stock: 20, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1604307176777-b7b2b02f2d4d?w=500&q=80",
           atributos: { potenciaW: 550, certificacion: "Bronze" } },
         { sku: "PSU-EVG-750G", nombre: "EVGA SuperNOVA 750W Gold Modular", tipo: "PSU", precio: 2400.00, stock: 11, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1604307176777-b7b2b02f2d4d?w=500&q=80",
           atributos: { potenciaW: 750, certificacion: "Gold" } },
         { sku: "PSU-SEA-1000P", nombre: "Seasonic Prime PX 1000W Platinum", tipo: "PSU", precio: 4500.00, stock: 4, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1604307176777-b7b2b02f2d4d?w=500&q=80",
           atributos: { potenciaW: 1000, certificacion: "Platinum" } },
 
         // GABINETE
         { sku: "GAB-COO-Q300L", nombre: "Cooler Master MasterBox Q300L (Mid-Tower budget)", tipo: "GABINETE", precio: 1100.00, stock: 18, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1587829191301-f282901e1f18?w=500&q=80",
           atributos: { factorForma: "Micro-ATX", maxLongitudGPUMM: 360 } },
         { sku: "GAB-FRA-DEFINE7", nombre: "Fractal Design Define 7 (Full-Tower premium)", tipo: "GABINETE", precio: 4200.00, stock: 4, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1587829191301-f282901e1f18?w=500&q=80",
           atributos: { factorForma: "E-ATX", maxLongitudGPUMM: 491 } },
         { sku: "GAB-NZX-H1V2", nombre: "NZXT H1 v2 (ITX compacto)", tipo: "GABINETE", precio: 3900.00, stock: 3, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1587829191301-f282901e1f18?w=500&q=80",
           atributos: { factorForma: "Mini-ITX", maxLongitudGPUMM: 324 } },
 
         // ALMACENAMIENTO
         { sku: "ALM-WD-SATA-1TB", nombre: "WD Blue SSD SATA 1TB", tipo: "ALMACENAMIENTO", precio: 1100.00, stock: 25, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&q=80",
           atributos: { tipo: "SATA SSD", capacidad_tb: 1 } },
         { sku: "ALM-SAM-990PRO-2TB", nombre: "Samsung 990 PRO NVMe Gen5 2TB", tipo: "ALMACENAMIENTO", precio: 3300.00, stock: 9, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&q=80",
           atributos: { tipo: "NVMe", capacidad_tb: 2 } },
         { sku: "ALM-SEA-HDD-4TB", nombre: "Seagate Barracuda HDD 4TB", tipo: "ALMACENAMIENTO", precio: 1300.00, stock: 14, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&q=80",
           atributos: { tipo: "HDD", capacidad_tb: 4 } },
 
         // ====== Nuevos tipos de periféricos (2026-05) ======
         // SILLA
         { sku: "SIL-DXR-OH-K99", nombre: "DXRacer OH/K99 Gamer Básica", tipo: "SILLA", precio: 4200.00, stock: 8, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1550355291-bbee04a92027?w=500&q=80",
           atributos: { tipo: "Gamer", material: "Tela", pesoMaxKg: 120, reposacabezas: true, apoyabrazos: "2D", reclinable: true } },
         { sku: "SIL-SEC-TITAN", nombre: "Secretlab Titan Evo Premium", tipo: "SILLA", precio: 11900.00, stock: 4, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1550355291-bbee04a92027?w=500&q=80",
           atributos: { tipo: "Gamer", material: "Piel", pesoMaxKg: 130, reposacabezas: true, apoyabrazos: "4D", reclinable: true } },
         { sku: "SIL-HER-AERON", nombre: "Herman Miller Aeron Ergonómica", tipo: "SILLA", precio: 23500.00, stock: 2, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1550355291-bbee04a92027?w=500&q=80",
           atributos: { tipo: "Ergonómica", material: "Mesh", pesoMaxKg: 159, reposacabezas: false, apoyabrazos: "4D", reclinable: true } },
         { sku: "SIL-COR-T3", nombre: "Corsair T3 RUSH Racing Edition", tipo: "SILLA", precio: 6800.00, stock: 6, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1550355291-bbee04a92027?w=500&q=80",
           atributos: { tipo: "Racing", material: "Tela", pesoMaxKg: 120, reposacabezas: true, apoyabrazos: "3D", reclinable: true } },
 
         // MOUSEPAD
         { sku: "MPD-LOG-G240", nombre: "Logitech G240 Cloth Standard", tipo: "MOUSEPAD", precio: 320.00, stock: 40, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&q=80",
           atributos: { tamano: "Standard", largoMM: 280, anchoMM: 340, material: "Tela", rgb: false } },
         { sku: "MPD-COR-MM700", nombre: "Corsair MM700 RGB Extended XL", tipo: "MOUSEPAD", precio: 1300.00, stock: 15, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&q=80",
           atributos: { tamano: "XL", largoMM: 930, anchoMM: 400, material: "Tela", rgb: true } },
         { sku: "MPD-SS-QCK-XXL", nombre: "SteelSeries QcK XXL", tipo: "MOUSEPAD", precio: 850.00, stock: 22, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&q=80",
           atributos: { tamano: "XXL", largoMM: 900, anchoMM: 400, material: "Tela", rgb: false } },
 
         // WEBCAM
         { sku: "CAM-LOG-C270", nombre: "Logitech C270 HD 720p", tipo: "WEBCAM", precio: 650.00, stock: 30, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1598618664191-23ed7f70ddab?w=500&q=80",
           atributos: { resolucion: "720p", fps: 30, microfonoIntegrado: true, enfoqueAutomatico: false, conexion: "USB-A" } },
         { sku: "CAM-LOG-C920", nombre: "Logitech C920 Pro 1080p", tipo: "WEBCAM", precio: 1500.00, stock: 18, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1598618664191-23ed7f70ddab?w=500&q=80",
           atributos: { resolucion: "1080p", fps: 30, microfonoIntegrado: true, enfoqueAutomatico: true, conexion: "USB-A" } },
         { sku: "CAM-LOG-BRIO4K", nombre: "Logitech Brio 4K Streaming", tipo: "WEBCAM", precio: 4200.00, stock: 6, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1598618664191-23ed7f70ddab?w=500&q=80",
           atributos: { resolucion: "4K", fps: 30, microfonoIntegrado: true, enfoqueAutomatico: true, conexion: "USB-C" } },
 
         // MICROFONO
         { sku: "MIC-BLU-YETI", nombre: "Blue Yeti USB Cardioide", tipo: "MICROFONO", precio: 2700.00, stock: 12, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1611339555312-e607c90352fd?w=500&q=80",
           atributos: { tipo: "USB cardioide", patronPolar: "Multipatrón", frecuenciaMuestreoKHz: 48, incluyeTripode: true } },
         { sku: "MIC-RDE-NTUSB", nombre: "Rode NT-USB Condensador", tipo: "MICROFONO", precio: 4900.00, stock: 5, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1611339555312-e607c90352fd?w=500&q=80",
           atributos: { tipo: "Condensador XLR", patronPolar: "Cardioide", frecuenciaMuestreoKHz: 48, incluyeTripode: true } },
         { sku: "MIC-RDE-LAV", nombre: "Rode Lavalier GO", tipo: "MICROFONO", precio: 1800.00, stock: 9, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1611339555312-e607c90352fd?w=500&q=80",
           atributos: { tipo: "Lavalier", patronPolar: "Omnidireccional", frecuenciaMuestreoKHz: 44.1, incluyeTripode: false } },
 
         // BOCINAS
         { sku: "BOC-LOG-Z200", nombre: "Logitech Z200 2.0 Escritorio", tipo: "BOCINAS", precio: 750.00, stock: 28, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&q=80",
           atributos: { configuracion: "2.0", potenciaW: 10, conexion: "3.5mm", subwoofer: false } },
         { sku: "BOC-LOG-Z313", nombre: "Logitech Z313 2.1 con Subwoofer", tipo: "BOCINAS", precio: 1200.00, stock: 16, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&q=80",
           atributos: { configuracion: "2.1", potenciaW: 25, conexion: "3.5mm", subwoofer: true } },
         { sku: "BOC-CRE-STAGE", nombre: "Creative Stage V2 Soundbar", tipo: "BOCINAS", precio: 2200.00, stock: 7, activo: true,
+          imagenUrl: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&q=80",
           atributos: { configuracion: "Soundbar", potenciaW: 80, conexion: "Bluetooth", subwoofer: true } }
     ];
 
