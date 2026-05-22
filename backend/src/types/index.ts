@@ -22,6 +22,7 @@ export enum TipoComponente {
     RAM = 'RAM',
     GPU = 'GPU',
     ALMACENAMIENTO = 'ALMACENAMIENTO',
+    ALMACENAMIENTO_EXTRA = 'ALMACENAMIENTO_EXTRA',
     PSU = 'PSU',
     GABINETE = 'GABINETE',
     MONITOR = 'MONITOR',
@@ -150,6 +151,14 @@ export interface AtributosAlmacenamiento {
     consumo: number;        // Watts
 }
 
+export interface AtributosAlmacenamientoExtra {
+    tipo: string;           // "SSD", "HDD", "NVMe"
+    capacidadGB: number;
+    interfaz: string;       // "SATA", "PCIe 4.0", "PCIe 5.0"
+    consumo: number;        // Watts
+    formato?: string;       // "M.2 2280", "2.5 pulgadas", "3.5 pulgadas"
+}
+
 export interface AtributosMonitor {
     tamanoPulgadas: number;
     resolucion: string;       // "1920x1080", "2560x1440", "3840x2160"
@@ -177,6 +186,45 @@ export interface AtributosAudifonos {
     conexion: string;         // "3.5mm", "USB", "Inalámbrico", "Bluetooth"
     microfono: boolean;
     surround?: string;        // "Estéreo", "7.1"
+}
+
+export interface AtributosSilla {
+    tipo: string;             // "Ergonómica", "Gaming", "Ejecutiva"
+    material: string;         // "Piel", "Malla", "Cuero sintético"
+    pesoMaximoKG: number;
+    alturaAjustable: boolean;
+    reposabrazos: string;     // "3D", "2D", "Fijos"
+}
+
+export interface AtributosMousepad {
+    tipo: string;             // "Gaming", "Escritorio", "Alargado"
+    dimensiones: string;      // e.g. "900x400mm"
+    superficie: string;       // "Tela", "Plástico", "Vidrio"
+    baseAntideslizante: boolean;
+}
+
+export interface AtributosWebcam {
+    resolucion: string;       // "1080p", "4K", "720p"
+    fps: number;
+    microfonoIntegrado: boolean;
+    conexion: string;         // "USB", "USB-C"
+    campoVision?: string;     // "78°", "90°", etc.
+}
+
+export interface AtributosMicrofono {
+    tipo: string;             // "Condensador", "Dinámico", "USB"
+    patron: string;           // "Cardioide", "Omnidireccional", "Bidireccional"
+    conexion: string;         // "USB", "XLR", "3.5mm"
+    frecuenciaInicio?: number;
+    frecuenciaFin?: number;
+}
+
+export interface AtributosBocinas {
+    tipo: string;             // "2.0", "2.1", "5.1", "Soundbar"
+    potenciaRMS: number;      // Watts
+    conexion: string;         // "Bluetooth", "USB", "3.5mm", "RCA"
+    canales: number;
+    subwooferIncluido: boolean;
 }
 
 /**

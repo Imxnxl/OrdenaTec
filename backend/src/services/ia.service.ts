@@ -59,13 +59,13 @@ ${JSON.stringify(catalogo, null, 2)}
 4. La longitud de la GPU (longitudMM) NO debe exceder maxLongitudGPUMM del gabinete
 
 ## INSTRUCCIONES:
-- Selecciona EXACTAMENTE un componente de cada tipo: CPU, MOTHERBOARD, RAM, GPU, ALMACENAMIENTO, PSU, GABINETE
+- Selecciona EXACTAMENTE un componente de cada tipo: CPU, MOTHERBOARD, RAM, GPU, ALMACENAMIENTO, ALMACENAMIENTO_EXTRA, PSU, GABINETE
 - Respeta el presupuesto del usuario si lo menciona
 - Prioriza rendimiento equilibrado
 - Responde ÚNICAMENTE con un JSON válido con esta estructura exacta:
 
 {
-    "componenteIds": ["id1", "id2", "id3", "id4", "id5", "id6", "id7"],
+    "componenteIds": ["id1", "id2", "id3", "id4", "id5", "id6", "id7", "id8"],
     "explicacion": "Explicación breve en español de por qué elegiste estos componentes y cómo se ajustan a lo que el usuario pidió."
 }
 

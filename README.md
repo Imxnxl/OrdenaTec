@@ -12,9 +12,19 @@ OrdenaTEC is a specialized e-commerce platform for selling computer components a
 *   **Hard Delete Architecture:** Fixed SKU conflicts by implementing true database cascade deletions, completely freeing up identifiers.
 *   **Toast Notifications:** Real-time visual feedback for CRUD operations (Create, Edit, Delete).
 *   **Inline Validation UI:** Backend Zod validation errors are now mapped directly to the frontend modal for easier user correction.
+*   **Enhanced Admin Panel:** Dashboard with stats (revenue, orders by status, low stock alerts), order management with status updates, user management with role toggling, pre-built PC CRUD, and CSV export.
+*   **Batch Checkout:** All cart items are now processed in a single transactional request, ensuring atomicity and preventing partial orders.
+*   **Stock by Quantity:** Stock decrement now respects the item quantity (not just 1 per component).
+*   **Rate Limiting:** API requests are rate-limited (200 req / 15 min per IP) for security.
+*   **Error Boundary:** Global React error boundary catches rendering errors without crashing the whole app.
+*   **Pre-armada Validation:** Admin cannot create/edit pre-built PCs without all required component types.
+*   **Unit Tests:** 19 tests covering the compatibility engine (socket, RAM, PSU, dimensions, pricing, filtering).
+*   **New Attribute Interfaces:** Added TypeScript interfaces for `AtributosAlmacenamientoExtra`, `AtributosSilla`, `AtributosMousepad`, `AtributosWebcam`, `AtributosMicrofono`, `AtributosBocinas`.
+*   **Config DELETE Endpoint:** Users can now delete saved configurations via `DELETE /api/configuraciones/:id`.
 
 ## v1.0 Features (Foundation)
-*   **Interactive PC Builder:** A 7-step wizard (CPU, Motherboard, RAM, GPU, Storage, PSU, Case) with state management.
+*   **Interactive PC Builder:** An 8-step wizard (CPU, Motherboard, RAM, GPU, Storage, Extra Storage, PSU, Case) with state management.
+*   **Dual Storage Support:** Users can select both a primary and an extra (secondary) storage drive in the PC builder.
 *   **Real-time Compatibility Engine:** Strict hardware validation (Socket types, RAM generations, Wattage limits, GPU dimensions).
 *   **Smart Suggestions:** Recommends alternative compatible components if a selection causes a conflict.
 *   **Cart & Checkout:** Dynamic pricing cart with simulated checkout and order generation.
@@ -58,12 +68,24 @@ ordenatec/
 | DELETE | `/api/componentes/:id`              | Delete component                     | Admin    |
 | POST   | `/api/configuraciones`              | Save a configuration                 | User     |
 | GET    | `/api/configuraciones/:id`          | Get configuration by ID              | User     |
+| PUT    | `/api/configuraciones/:id`          | Update configuration                 | User     |
+| DELETE | `/api/configuraciones/:id`          | Delete configuration                 | User     |
 | GET    | `/api/configuraciones/usuario`      | List user configurations             | User     |
 | POST   | `/api/configuraciones/validar`      | Validate compatibility               | Public   |
 | POST   | `/api/pedidos`                      | Create order from cart               | User     |
+| POST   | `/api/pedidos/batch`                | Create multiple orders in transaction | User     |
 | GET    | `/api/pedidos`                      | List user orders                     | User     |
 | GET    | `/api/pedidos/:id`                  | Get order details                    | User     |
 | PUT    | `/api/pedidos/:id/estado`           | Update order status                  | Admin    |
+| GET    | `/api/admin/estadisticas`           | Dashboard stats                      | Admin    |
+| GET    | `/api/admin/pedidos`                | List all orders (paginated)          | Admin    |
+| PUT    | `/api/admin/pedidos/:id/estado`     | Update any order status              | Admin    |
+| GET    | `/api/admin/usuarios`               | List all users                       | Admin    |
+| PUT    | `/api/admin/usuarios/:id/rol`       | Change user role                     | Admin    |
+| POST   | `/api/admin/prearmadas`             | Create pre-built PC                  | Admin    |
+| PUT    | `/api/admin/prearmadas/:id`         | Update pre-built PC                  | Admin    |
+| DELETE | `/api/admin/prearmadas/:id`         | Delete pre-built PC                  | Admin    |
+| GET    | `/api/admin/exportar/componentes`   | Export catalog as CSV                | Admin    |
 
 ---
 

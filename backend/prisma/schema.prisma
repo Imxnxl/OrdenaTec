@@ -1,9 +1,3 @@
-// ============================================
-// OrdenaTEC — Prisma Schema
-// Defines the data model for the e-commerce
-// PC configurator platform.
-// ============================================
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,7 +7,119 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// ---- Enums ----
+/// Usuario registrado en la plataforma
+model Usuario {
+  id              String          @id @default(uuid())
+  email           String          @unique
+  nombre          String
+  password        String
+  rol             Rol             @default(CLIENTE)
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+  configuraciones Configuracion[]
+  pedidos         Pedido[]
+
+  @@map("usuarios")
+}
+
+/// Componente de PC disponible en el catálogo
+model Componente {
+  id              String                    @id @default(uuid())
+  sku             String                    @unique
+  nombre          String
+  tipo            TipoComponente
+  precio          Float
+  stock           Int                       @default(0)
+  atributos       Json
+  imagenUrl       String?
+  activo          Boolean                   @default(true)
+  createdAt       DateTime                  @default(now())
+  updatedAt       DateTime                  @updatedAt
+  configuraciones ConfiguracionComponente[]
+
+  @@index([tipo])
+  @@index([activo])
+  @@map("componentes")
+}
+
+/// Configuración de PC armada por el usuario
+model Configuracion {
+  id              String                    @id @default(uuid())
+  nombre          String?
+  usuarioId       String?
+  precioTotal     Float                     @default(0)
+  consumoEstimado Float?
+  createdAt       DateTime                  @default(now())
+  updatedAt       DateTime                  @updatedAt
+  categoria       String?
+  descripcion     String?
+  destacada       Boolean                   @default(false)
+  esPrearmada     Boolean                   @default(false)
+  imagenUrl       String?
+  componentes     ConfiguracionComponente[]
+  usuario         Usuario?                  @relation(fields: [usuarioId], references: [id])
+  pedidos         Pedido[]
+
+  @@map("configuraciones")
+}
+
+/// Tabla intermedia: relación muchos-a-muchos entre Configuracion y Componente
+model ConfiguracionComponente {
+  configuracionId String
+  componenteId    String
+  componente      Componente    @relation(fields: [componenteId], references: [id], onDelete: Cascade)
+  configuracion   Configuracion @relation(fields: [configuracionId], references: [id], onDelete: Cascade)
+
+  @@id([configuracionId, componenteId])
+  @@map("configuracion_componentes")
+}
+
+/// Pedido realizado por un usuario
+model Pedido {
+  id                     String         @id @default(uuid())
+  usuarioId              String
+  configuracionId        String?
+  estado                 EstadoPedido   @default(PENDIENTE)
+  total                  Float
+  createdAt              DateTime       @default(now())
+  updatedAt              DateTime       @updatedAt
+  alcaldiaMunicipio      String?
+  apellidoMaterno        String?
+  apellidoPaterno        String?
+  calle                  String?
+  ciudad                 String?
+  codigoPostal           String?
+  colonia                String?
+  entreCalles            String?
+  estadoEnvio            String?
+  nombreDestinatario     String?
+  nombreDestinatarioPila String?
+  numeroExterior         String?
+  numeroInterior         String?
+  pais                   String?
+  referenciasEnvio       String?
+  telefonoAlternativo    String?
+  telefonoContacto       String?
+  tipoVivienda           TipoVivienda?
+  pagos                  Pago[]
+  configuracion          Configuracion? @relation(fields: [configuracionId], references: [id])
+  usuario                Usuario        @relation(fields: [usuarioId], references: [id])
+
+  @@map("pedidos")
+}
+
+/// Registro de pago asociado a un pedido
+model Pago {
+  id       String     @id @default(uuid())
+  pedidoId String
+  monto    Float
+  metodo   String
+  estado   EstadoPago @default(PENDIENTE)
+  fecha    DateTime   @default(now())
+  pedido   Pedido     @relation(fields: [pedidoId], references: [id])
+
+  @@map("pagos")
+}
 
 /// Roles de usuario en la plataforma
 enum Rol {
@@ -39,6 +145,7 @@ enum TipoComponente {
   WEBCAM
   MICROFONO
   BOCINAS
+  ALMACENAMIENTO_EXTRA
 }
 
 /// Tipo de vivienda registrada para la dirección de envío
@@ -64,123 +171,4 @@ enum EstadoPago {
   COMPLETADO
   FALLIDO
   REEMBOLSADO
-}
-
-// ---- Models ----
-
-/// Usuario registrado en la plataforma
-model Usuario {
-  id              String          @id @default(uuid())
-  email           String          @unique
-  nombre          String
-  password        String          // Hash bcrypt
-  rol             Rol             @default(CLIENTE)
-  configuraciones Configuracion[]
-  pedidos         Pedido[]
-  createdAt       DateTime        @default(now())
-  updatedAt       DateTime        @updatedAt
-
-  @@map("usuarios")
-}
-
-/// Componente de PC disponible en el catálogo
-model Componente {
-  id         String                     @id @default(uuid())
-  sku        String                     @unique
-  nombre     String
-  tipo       TipoComponente
-  precio     Float
-  stock      Int                        @default(0)
-  atributos  Json                       // Atributos dinámicos según tipo
-  imagenUrl  String?
-  activo     Boolean                    @default(true)
-  configuraciones ConfiguracionComponente[]
-  createdAt  DateTime                   @default(now())
-  updatedAt  DateTime                   @updatedAt
-
-  @@index([tipo])
-  @@index([activo])
-  @@map("componentes")
-}
-
-/// Configuración de PC armada por el usuario
-model Configuracion {
-  id              String                     @id @default(uuid())
-  nombre          String?
-  usuarioId       String?
-  usuario         Usuario?                   @relation(fields: [usuarioId], references: [id])
-  precioTotal     Float                      @default(0)
-  consumoEstimado Float?                     // Watts estimados
-  esPrearmada     Boolean                    @default(false)
-  categoria       String?                    // "Gaming", "Workstation", "Budget", "Streaming"
-  descripcion     String?                    // Marketing description
-  imagenUrl       String?                    // Hero image for prebuilt card
-  destacada       Boolean                    @default(false)
-  componentes     ConfiguracionComponente[]
-  pedidos         Pedido[]
-  createdAt       DateTime                   @default(now())
-  updatedAt       DateTime                   @updatedAt
-
-  @@map("configuraciones")
-}
-
-/// Tabla intermedia: relación muchos-a-muchos entre Configuracion y Componente
-model ConfiguracionComponente {
-  configuracionId String
-  componenteId    String
-  configuracion   Configuracion @relation(fields: [configuracionId], references: [id], onDelete: Cascade)
-  componente      Componente    @relation(fields: [componenteId], references: [id], onDelete: Cascade)
-
-  @@id([configuracionId, componenteId])
-  @@map("configuracion_componentes")
-}
-
-/// Pedido realizado por un usuario
-model Pedido {
-  id                  String          @id @default(uuid())
-  usuarioId           String
-  usuario             Usuario         @relation(fields: [usuarioId], references: [id])
-  configuracionId     String?
-  configuracion       Configuracion?  @relation(fields: [configuracionId], references: [id])
-  estado              EstadoPedido    @default(PENDIENTE)
-  total               Float
-  // ---- Dirección de envío desglosada ----
-  // Nombre legacy (mantener para retrocompatibilidad con pedidos viejos).
-  nombreDestinatario  String?
-  // Nombre desglosado (preferido en pedidos nuevos).
-  nombreDestinatarioPila    String?  // Nombre(s) de pila
-  apellidoPaterno     String?
-  apellidoMaterno     String?
-  telefonoContacto    String?
-  telefonoAlternativo String?
-  calle               String?
-  numeroExterior      String?
-  numeroInterior      String?
-  entreCalles         String?
-  colonia             String?
-  alcaldiaMunicipio   String?
-  ciudad              String?
-  estadoEnvio         String?         // nombre del estado/provincia (evita choque con "estado")
-  codigoPostal        String?
-  pais                String?
-  tipoVivienda        TipoVivienda?
-  referenciasEnvio    String?
-  pagos               Pago[]
-  createdAt           DateTime        @default(now())
-  updatedAt           DateTime        @updatedAt
-
-  @@map("pedidos")
-}
-
-/// Registro de pago asociado a un pedido
-model Pago {
-  id        String     @id @default(uuid())
-  pedidoId  String
-  pedido    Pedido     @relation(fields: [pedidoId], references: [id])
-  monto     Float
-  metodo    String     // "tarjeta", "transferencia", "simulado"
-  estado    EstadoPago @default(PENDIENTE)
-  fecha     DateTime   @default(now())
-
-  @@map("pagos")
 }

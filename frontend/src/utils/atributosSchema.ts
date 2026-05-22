@@ -64,6 +64,13 @@ export const ATRIBUTOS_POR_TIPO: Record<TipoComponente, CampoAtributo[]> = {
         { key: 'capacidad_tb', label: 'Capacidad', tipo: 'number', requerido: true, sufijo: 'TB', min: 0,
           ayuda: 'En Terabytes. 500GB = 0.5, 1TB = 1, etc.' },
     ],
+    [TipoComponente.ALMACENAMIENTO_EXTRA]: [
+        { key: 'tipo', label: 'Tipo', tipo: 'select', requerido: true,
+          opciones: ['NVMe', 'SATA SSD', 'HDD'],
+          ayuda: 'NVMe es el más rápido. HDD es disco mecánico tradicional.' },
+        { key: 'capacidad_tb', label: 'Capacidad', tipo: 'number', requerido: true, sufijo: 'TB', min: 0,
+          ayuda: 'En Terabytes. 500GB = 0.5, 1TB = 1, etc.' },
+    ],
     [TipoComponente.PSU]: [
         { key: 'potenciaW', label: 'Potencia', tipo: 'number', requerido: true, sufijo: 'W', min: 1,
           ayuda: 'Potencia total que entrega la fuente. Debe ser mayor que la suma de consumos.' },

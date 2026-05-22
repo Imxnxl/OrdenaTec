@@ -15,6 +15,7 @@ export enum TipoComponente {
     RAM = 'RAM',
     GPU = 'GPU',
     ALMACENAMIENTO = 'ALMACENAMIENTO',
+    ALMACENAMIENTO_EXTRA = 'ALMACENAMIENTO_EXTRA',
     PSU = 'PSU',
     GABINETE = 'GABINETE',
     MONITOR = 'MONITOR',
@@ -187,6 +188,7 @@ export const PASOS_CONFIGURADOR = [
     { tipo: TipoComponente.RAM, nombre: 'Memoria RAM', icono: '📊' },
     { tipo: TipoComponente.GPU, nombre: 'Tarjeta Gráfica', icono: '🎮' },
     { tipo: TipoComponente.ALMACENAMIENTO, nombre: 'Almacenamiento', icono: '💾' },
+    { tipo: TipoComponente.ALMACENAMIENTO_EXTRA, nombre: 'Almacenamiento Extra', icono: '💿' },
     { tipo: TipoComponente.PSU, nombre: 'Fuente de Poder', icono: '⚡' },
     { tipo: TipoComponente.GABINETE, nombre: 'Gabinete', icono: '🖥️' },
 ] as const;

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import { Componente, TipoComponente, ResultadoCompatibilidad } from '../../types';
+import { Componente, TipoComponente, ResultadoCompatibilidad, PASOS_CONFIGURADOR } from '../../types';
 import { configuracionService } from '../../services/configuracion.service';
 
 interface ConfiguracionState {
@@ -98,7 +98,7 @@ const configuracionSlice = createSlice({
         },
 
         siguientePaso(state) {
-            if (state.pasoActual < 6) {
+            if (state.pasoActual < PASOS_CONFIGURADOR.length - 1) {
                 state.pasoActual += 1;
             }
         },

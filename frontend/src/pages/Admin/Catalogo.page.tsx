@@ -6,8 +6,10 @@
 // ============================================
 
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { Componente, TipoComponente } from '../../types';
+import { useSearchParams } from 'react-router-dom';
+import { Componente, TipoComponente, TIPOS_PERIFERICOS } from '../../types';
 import { componenteService } from '../../services/componente.service';
+import api from '../../services/api';
 import { formatearPrecio, traducirTipoComponente } from '../../utils/formatters';
 import { ATRIBUTOS_POR_TIPO, CampoAtributo } from '../../utils/atributosSchema';
 import Loading from '../../components/common/Loading';
@@ -71,9 +73,15 @@ const parseAtributosExistentes = (
 const CatalogoPage: React.FC = () => {
     const toast = useToast();
 
+    const TIPOS_COMPONENTES = Object.values(TipoComponente).filter((t) => !(TIPOS_PERIFERICOS as string[]).includes(t));
+    const [searchParams] = useSearchParams();
+
     const [componentes, setComponentes] = useState<Componente[]>([]);
     const [loading, setLoading] = useState(true);
     const [filtroTipo, setFiltroTipo] = useState<string>('');
+    const [categoria, setCategoria] = useState<'todos' | 'componentes' | 'perifericos'>(
+        (searchParams.get('cat') as any) || 'todos'
+    );
     const [showModal, setShowModal] = useState(false);
     const [editando, setEditando] = useState<Componente | null>(null);
 
@@ -86,13 +94,22 @@ const CatalogoPage: React.FC = () => {
     const [guardando, setGuardando] = useState(false);
     const [formData, setFormData] = useState<FormState>(formInicial());
 
+    const tiposPermitidos = useMemo(() => {
+        if (categoria === 'perifericos') return TIPOS_PERIFERICOS as TipoComponente[];
+        if (categoria === 'componentes') return TIPOS_COMPONENTES;
+        return Object.values(TipoComponente);
+    }, [categoria]);
+
+    const componentesFiltrados = useMemo(() => {
+        let lista = componentes;
+        if (filtroTipo) lista = lista.filter((c) => c.tipo === filtroTipo);
+        return lista;
+    }, [componentes, filtroTipo]);
+
     const cargarComponentes = useCallback(async () => {
         try {
             setLoading(true);
-            const res = await componenteService.listar({
-                tipo: filtroTipo ? (filtroTipo as TipoComponente) : undefined,
-                porPagina: 100,
-            });
+            const res = await componenteService.listar({ porPagina: 200 });
             setComponentes(res.datos);
         } catch (err) {
             console.error('Error cargando componentes:', err);
@@ -100,7 +117,7 @@ const CatalogoPage: React.FC = () => {
         } finally {
             setLoading(false);
         }
-    }, [filtroTipo, toast]);
+    }, [toast]);
 
     useEffect(() => {
         cargarComponentes();
@@ -133,7 +150,8 @@ const CatalogoPage: React.FC = () => {
 
     const handleNuevo = () => {
         setEditando(null);
-        setFormData(formInicial(TipoComponente.CPU));
+        const tipoInicial = categoria === 'perifericos' ? TipoComponente.MONITOR : TipoComponente.CPU;
+        setFormData(formInicial(tipoInicial));
         setFormErrors([]);
         setShowModal(true);
     };
@@ -251,24 +269,57 @@ const CatalogoPage: React.FC = () => {
         <div className="admin-page">
             <div className="admin-header">
                 <h1 className="page-title">📋 Catálogo de Componentes</h1>
-                <button className="btn btn-primary" onClick={handleNuevo}>
-                    + Nuevo componente
-                </button>
+                <div style={{ display: 'flex', gap: 8 }}>
+                    <button className="btn btn-outline" onClick={async () => {
+                        try {
+                            const res = await api.get('/admin/exportar/componentes', {
+                                responseType: 'blob',
+                            });
+                            const url = URL.createObjectURL(res.data);
+                            const a = document.createElement('a');
+                            a.href = url; a.download = 'componentes.csv';
+                            a.click(); URL.revokeObjectURL(url);
+                        } catch {
+                            toast.mostrar('Error al exportar', 'error');
+                        }
+                    }}>
+                        📥 Exportar CSV
+                    </button>
+                    <button className="btn btn-primary" onClick={handleNuevo}>
+                        + Nuevo
+                    </button>
+                </div>
             </div>
 
             <div className="admin-filters">
-                <select
-                    className="input-field"
-                    value={filtroTipo}
-                    onChange={(e) => setFiltroTipo(e.target.value)}
-                >
-                    <option value="">Todos los tipos</option>
-                    {Object.values(TipoComponente).map((tipo) => (
-                        <option key={tipo} value={tipo}>
-                            {traducirTipoComponente(tipo)}
-                        </option>
-                    ))}
-                </select>
+                <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+                    <div className="tab-group" style={{ display: 'flex', gap: 4, background: 'rgba(255,255,255,0.05)', borderRadius: 8, padding: 4 }}>
+                        {(['todos', 'componentes', 'perifericos'] as const).map((cat) => (
+                            <button
+                                key={cat}
+                                className={`btn btn-sm ${categoria === cat ? 'btn-primary' : 'btn-outline'}`}
+                                onClick={() => { setCategoria(cat); setFiltroTipo(''); }}
+                                style={{ fontSize: '0.8rem' }}
+                            >
+                                {cat === 'todos' ? '📋 Todos' : cat === 'componentes' ? '🔧 Componentes' : '🖥️ Periféricos'}
+                            </button>
+                        ))}
+                    </div>
+                    <select
+                        className="input-field"
+                        value={filtroTipo}
+                        onChange={(e) => setFiltroTipo(e.target.value)}
+                        style={{ maxWidth: 200 }}
+                    >
+                        <option value="">Todos los tipos</option>
+                        {tiposPermitidos.map((tipo) => (
+                            <option key={tipo} value={tipo}>
+                                {traducirTipoComponente(tipo)}
+                            </option>
+                        ))}
+                    </select>
+                    <span style={{ fontSize: '0.8rem', opacity: 0.5 }}>{componentesFiltrados.length} resultados</span>
+                </div>
             </div>
 
             <div className="admin-table-wrapper">
@@ -285,7 +336,7 @@ const CatalogoPage: React.FC = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {componentes.map((comp) => (
+                        {componentesFiltrados.map((comp) => (
                             <tr key={comp.id}>
                                 <td><code>{comp.sku}</code></td>
                                 <td>{comp.nombre}</td>
@@ -336,7 +387,7 @@ const CatalogoPage: React.FC = () => {
                                     onChange={(e) => handleChangeTipo(e.target.value as TipoComponente)}
                                     disabled={!!editando}
                                 >
-                                    {Object.values(TipoComponente).map((tipo) => (
+                                    {tiposPermitidos.map((tipo) => (
                                         <option key={tipo} value={tipo}>
                                             {traducirTipoComponente(tipo)}
                                         </option>

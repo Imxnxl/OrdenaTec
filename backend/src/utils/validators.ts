@@ -34,6 +34,7 @@ const tipoComponenteEnum = z.enum([
     'RAM',
     'GPU',
     'ALMACENAMIENTO',
+    'ALMACENAMIENTO_EXTRA',
     'PSU',
     'GABINETE',
     'MONITOR',
