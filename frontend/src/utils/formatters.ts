@@ -66,6 +66,7 @@ export const traducirTipoComponente = (tipo: string): string => {
         RAM: 'Memoria RAM',
         GPU: 'Tarjeta Gráfica',
         ALMACENAMIENTO: 'Almacenamiento',
+        ALMACENAMIENTO_EXTRA: 'Almacenamiento Extra',
         PSU: 'Fuente de Poder',
         GABINETE: 'Gabinete',
         MONITOR: 'Monitor',

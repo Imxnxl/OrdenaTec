@@ -519,10 +519,6 @@ async function main() {
           atributos: { socket: "LGA1700", consumo: 125 } },
 
         // GPU
-        { sku: "GPU-AMD-7800XT", nombre: "AMD Radeon RX 7800 XT", tipo: "GPU", precio: 9400.00, stock: 8, activo: true,
-          atributos: { vram: "16GB", consumo: 263, longitudMM: 287 } },
-        { sku: "GPU-AMD-7900XTX", nombre: "AMD Radeon RX 7900 XTX", tipo: "GPU", precio: 17600.00, stock: 4, activo: true,
-          atributos: { vram: "24GB", consumo: 355, longitudMM: 287 } },
         { sku: "GPU-NV-4070S", nombre: "NVIDIA GeForce RTX 4070 SUPER", tipo: "GPU", precio: 12900.00, stock: 7, activo: true,
           atributos: { vram: "12GB", consumo: 220, longitudMM: 304 } },
         { sku: "GPU-NV-4090", nombre: "NVIDIA GeForce RTX 4090", tipo: "GPU", precio: 32500.00, stock: 2, activo: true,
@@ -573,6 +569,13 @@ async function main() {
           atributos: { tipo: "NVMe", capacidad_tb: 2 } },
         { sku: "ALM-SEA-HDD-4TB", nombre: "Seagate Barracuda HDD 4TB", tipo: "ALMACENAMIENTO", precio: 1300.00, stock: 14, activo: true,
           atributos: { tipo: "HDD", capacidad_tb: 4 } },
+        // ALMACENAMIENTO_EXTRA
+        { sku: "ALM-EXTRA-SSD-500", nombre: "Kingston A400 SSD SATA 500GB", tipo: "ALMACENAMIENTO_EXTRA", precio: 650.00, stock: 30, activo: true,
+          atributos: { tipo: "SATA SSD", capacidad_tb: 0.5, consumo: 3 } },
+        { sku: "ALM-EXTRA-NVME-1TB", nombre: "Western Digital SN580 NVMe 1TB", tipo: "ALMACENAMIENTO_EXTRA", precio: 1400.00, stock: 18, activo: true,
+          atributos: { tipo: "NVMe", capacidad_tb: 1, consumo: 5 } },
+        { sku: "ALM-EXTRA-HDD-2TB", nombre: "Toshiba X300 HDD 2TB", tipo: "ALMACENAMIENTO_EXTRA", precio: 850.00, stock: 15, activo: true,
+          atributos: { tipo: "HDD", capacidad_tb: 2, consumo: 7 } },
 
         // ====== Nuevos tipos de periféricos (2026-05) ======
         // SILLA

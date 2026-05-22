@@ -266,6 +266,42 @@ Abre una interfaz web en `http://localhost:5555` para ver y editar tablas direct
 
 ---
 
+## Tests
+
+El backend incluye **19 tests unitarios** para el motor de compatibilidad:
+
+```bash
+cd backend
+npm test
+```
+
+Los tests cubren:
+- Validación de socket CPU ↔ Motherboard
+- Validación de generación de RAM ↔ Motherboard
+- Validación de consumo vs PSU (incluyendo margen del 20%)
+- Validación de dimensiones GPU ↔ Gabinete
+- Configuraciones completas (compatibles e incompatibles)
+- Advertencias de stock agotado
+- Cálculo de precio total y consumo estimado
+- Filtrado de componentes compatibles
+
+---
+
+## Nuevas funcionalidades técnicas (v2.1)
+
+| Cambio | Descripción |
+|--------|-------------|
+| **Batch Checkout** | Los items del carrito se envían en una sola transacción — si algo falla, no se crea ningún pedido |
+| **Stock por cantidad** | El stock se descuenta según la cantidad solicitada, no solo 1 |
+| **Rate Limiting** | 200 solicitudes por IP cada 15 minutos en `/api` |
+| **ErrorBoundary global** | Captura errores de React sin dejar la app en blanco |
+| **Validación de prearmadas** | No se puede crear/editar una PC sin los 7 tipos esenciales |
+| **DELETE configuraciones** | Nueva ruta `DELETE /api/configuraciones/:id` |
+| **Interfaces TypeScript** | `AtributosAlmacenamientoExtra`, `AtributosSilla`, `AtributosMousepad`, `AtributosWebcam`, `AtributosMicrofono`, `AtributosBocinas` |
+| **CSV export con Axios** | Ahora usa el interceptor JWT en vez de `fetch()` directo |
+
+---
+
 ## Resumen Rapido (Para los impacientes)
 
 ```bash
@@ -291,5 +327,73 @@ npm run dev
 ```
 
 ---
+
+---
+
+## Panel de Administración
+
+El panel admin (`/admin`) ahora incluye 4 secciones:
+
+### 📊 Dashboard (`/admin`)
+- Componentes activos, pedidos totales, usuarios registrados, PCs pre-armadas, ingresos totales
+- Pedidos agrupados por estado
+- Alertas de stock bajo (&le;5 unidades)
+- Enlaces rápidos a todas las secciones
+
+### 📋 Catálogo (`/admin/catalogo`)
+- CRUD completo de componentes con formularios dinámicos según el tipo
+- Exportar catálogo a CSV desde un botón en la cabecera (ahora usa Axios con JWT en vez de fetch directo)
+
+### 📦 Pedidos (`/admin/pedidos`)
+- Lista paginada con filtro por estado
+- Cambiar estado de cada pedido (PENDIENTE → PAGADO → ENVIADO → ENTREGADO → CANCELADO)
+
+### 🖥️ PCs Pre-Armadas (`/admin/prearmadas`)
+- CRUD completo: crear, editar y eliminar PCs pre-armadas
+- Selector visual de componentes agrupados por tipo con checkboxes
+- Asignar categoría, descripción, imagen y marcarlas como destacadas
+- ✅ **Validación:** ahora valida que se incluyan los 7 tipos esenciales (CPU, MOTHERBOARD, RAM, GPU, ALMACENAMIENTO, PSU, GABINETE)
+
+### 👥 Usuarios (`/admin/usuarios`)
+- Lista de todos los usuarios registrados
+- Promover/revocar rol de administrador con un clic
+
+### API endpoints de admin
+
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| GET | `/api/admin/estadisticas` | Estadísticas del dashboard |
+| GET | `/api/admin/pedidos` | Lista paginada de pedidos (filtro: `?estado=`) |
+| PUT | `/api/admin/pedidos/:id/estado` | Cambiar estado de pedido |
+| GET | `/api/admin/usuarios` | Listar usuarios |
+| PUT | `/api/admin/usuarios/:id/rol` | Cambiar rol de usuario |
+| POST | `/api/admin/prearmadas` | Crear PC pre-armada |
+| PUT | `/api/admin/prearmadas/:id` | Actualizar PC pre-armada |
+| DELETE | `/api/admin/prearmadas/:id` | Eliminar PC pre-armada |
+| GET | `/api/admin/exportar/componentes` | Exportar catálogo a CSV |
+
+---
+
+## Almacenamiento Extra (`ALMACENAMIENTO_EXTRA`)
+
+El tipo `ALMACENAMIENTO_EXTRA` está completamente integrado. Permite seleccionar un segundo disco de almacenamiento en el configurador como paso opcional (Paso 6 de 8).
+
+### Cambios realizados
+
+| Ámbito | Archivo | Cambio |
+|---|---|---|
+| Backend | `schema.prisma` | Enum `ALMACENAMIENTO_EXTRA` en `TipoComponente` (existente) |
+| Backend | `types/index.ts` | Enum `ALMACENAMIENTO_EXTRA` en `TipoComponente` (existente) |
+| Backend | `utils/validators.ts` | Agregado al `tipoComponenteEnum` de Zod |
+| Backend | `prisma/seed.ts` | 3 componentes de prueba (SSD, NVMe, HDD) |
+| Backend | `services/ia.service.ts` | Agregado al prompt del sistema de la IA |
+| Frontend | `types/index.ts` | Agregado al enum `TipoComponente` y a `PASOS_CONFIGURADOR` |
+| Frontend | `components/configurador/PasoAlmacenamientoExtra.tsx` | Nuevo componente de paso (creado) |
+| Frontend | `pages/Configurador.page.tsx` | Nuevo step en el array `pasoComponentes` |
+| Frontend | `utils/formatters.ts` | Traducción a "Almacenamiento Extra" |
+| Frontend | `utils/atributosSchema.ts` | Schema de formulario admin |
+| Frontend | `pages/Prearmadas.page.tsx` | Emoji mapping `💿` |
+| Frontend | `pages/IAConfigurador.page.tsx` | Emoji mapping `💿` |
+| Frontend | `store/slices/configuracion.slice.ts` | Límite de navegación dinámico (`PASOS_CONFIGURADOR.length`) |
 
 > 📌 **OrdenaTEC v2.0** — Proyecto de Ingenieria de Software 2026
